@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  webapp:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - SKIP_ENV_VALIDATION=true
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
