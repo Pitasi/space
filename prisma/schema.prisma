@@ -24,7 +24,8 @@ model Article {
     published  Boolean      @default(false)
     author     User         @relation(fields: [authorId], references: [id])
     authorId   String
-    ArticleTag ArticleTag[]
+    articleTag ArticleTag[]
+    comment    Comment[]
 }
 
 model ArticleTag {
@@ -46,7 +47,8 @@ model App {
     author      User     @relation(fields: [authorId], references: [id])
     authorId    String
 
-    tags AppTag[]
+    tags    AppTag[]
+    comment Comment[]
 }
 
 model AppTag {
@@ -58,14 +60,34 @@ model AppTag {
 }
 
 model AmaQuestion {
-    id          String   @id @default(cuid())
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
+    id          String    @id @default(cuid())
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
     question    String
     description String?
-    published   Boolean  @default(false)
-    author      User     @relation(fields: [authorId], references: [id])
+    published   Boolean   @default(false)
+    author      User      @relation(fields: [authorId], references: [id])
     authorId    String
+    comment     Comment[]
+}
+
+model Comment {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    content   String
+    author    User     @relation(fields: [authorId], references: [id])
+    authorId  String
+
+    // Comment can be on any of those other models
+    article   Article? @relation(fields: [articleId], references: [id])
+    articleId String?
+
+    app   App?    @relation(fields: [appId], references: [id])
+    appId String?
+
+    amaQuestion   AmaQuestion? @relation(fields: [amaQuestionId], references: [id])
+    amaQuestionId String?
 }
 
 // Necessary for Next auth
@@ -106,6 +128,7 @@ model User {
     articles      Article[]
     apps          App[]
     amaQuestion   AmaQuestion[]
+    comment       Comment[]
 }
 
 model VerificationToken {

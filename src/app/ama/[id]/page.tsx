@@ -1,10 +1,16 @@
 import { prisma } from "~/server/db";
 import { WithGetter } from "~/components/WithGetter";
-import { AmaQuestion } from "@prisma/client";
 
 async function getQuestion({ id }: { id: string }) {
   return await prisma.amaQuestion.findFirst({
     where: { id },
+    include: {
+      comment: {
+        include: {
+          author: true,
+        },
+      },
+    },
   });
 }
 
@@ -13,13 +19,18 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return { title: q?.question };
 }
 
-const Page = ({ data }: { data: AmaQuestion }) => {
+export default WithGetter(getQuestion, ({ data }) => {
   return (
     <div>
       <h1>{data.question}</h1>
       <p>{data.description}</p>
+      <ul>
+        {data.comment.map((comment) => (
+          <li key={comment.id}>
+            {comment.content} (from {comment.author.name})
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default WithGetter(getQuestion, Page);
+});
