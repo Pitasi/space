@@ -10,6 +10,13 @@ export const metadata = {
   },
 };
 
+const paths = [
+  { href: "/", title: "Home" },
+  { href: "/articles", title: "Articles" },
+  { href: "/ama", title: "AMA" },
+  { href: "/stack", title: "Stack" },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -21,11 +28,7 @@ export default function RootLayout({
         <header>
           <Navigation
             className="bg-green-200"
-            paths={[
-              { href: "/", title: "Home" },
-              { href: "/articles", title: "Articles" },
-              { href: "/stack", title: "Stack" },
-            ]}
+            paths={paths}
             itemComponent={RootNavItem}
           />
         </header>
