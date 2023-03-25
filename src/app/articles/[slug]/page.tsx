@@ -1,12 +1,13 @@
 import { prisma } from "~/server/db";
 import { WithGetter } from "~/components/WithGetter";
-import { type Article } from "@prisma/client";
+import { cache } from "react";
 
-async function getArticle({ slug }: { slug: string }) {
-  return await prisma.article.findFirst({
-    where: { slug },
-  });
-}
+const getArticle = cache(
+  async ({ slug }: { slug: string }) =>
+    await prisma.article.findFirst({
+      where: { slug },
+    })
+);
 
 export async function generateMetadata({
   params,
@@ -17,13 +18,11 @@ export async function generateMetadata({
   return { title: article?.title };
 }
 
-const Page = ({ data }: { data: Article }) => {
+export default WithGetter(getArticle, ({ data }) => {
   return (
     <div>
       <h1 className="text-xl font-bold">{data.title}</h1>
       <p>{data.content}</p>
     </div>
   );
-};
-
-export default WithGetter(getArticle, Page);
+});

@@ -3,15 +3,13 @@ import { prisma } from "~/server/db";
 import { Path } from "~/components/Navigation";
 import { StackNavItem } from "./StackNavItem";
 import LayoutWithList from "~/components/LayoutWithList";
+import { cache } from "react";
 
 export const metadata = {
   title: "AMA - Ask me anything!",
 };
 
-async function getQuestions(): Promise<AmaQuestion[]> {
-  const questions = await prisma.amaQuestion.findMany();
-  return questions;
-}
+const getQuestions = cache(async () => await prisma.amaQuestion.findMany());
 
 function questionToPath(q: AmaQuestion): Path {
   return {
