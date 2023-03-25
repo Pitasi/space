@@ -39,8 +39,7 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts",
-    "src/components/Squircle/SquircleCliptsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
