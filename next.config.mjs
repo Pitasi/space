@@ -8,7 +8,8 @@
 const config = {
   reactStrictMode: true,
 
-  output: "standalone",
+  // Uncomment this if deploying to Docker
+  // output: "standalone",
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
