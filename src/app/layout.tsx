@@ -3,6 +3,8 @@ import { Navigation } from "../components/Navigation";
 import "../styles/globals.css";
 import { RootNavItem } from "./RootNavItem";
 
+export const revalidate = 0;
+
 export const metadata = {
   title: {
     default: "Antonio Pitasi",
