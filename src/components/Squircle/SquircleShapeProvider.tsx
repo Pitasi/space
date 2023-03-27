@@ -1,6 +1,6 @@
 export function SquircleShapeProvider() {
   return (
-    <svg width="10" height="10" viewBox="0 0 10 10">
+    <svg width="0" height="0" viewBox="0 0 10 10">
       <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
         <path
           fill="red"

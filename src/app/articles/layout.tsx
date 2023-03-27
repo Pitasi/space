@@ -1,9 +1,8 @@
 import { Article } from "@prisma/client";
 import { prisma } from "~/server/db";
-import { Path } from "~/components/Navigation";
-import { ArticlesNavItem } from "./ArticlesNavItem";
 import LayoutWithList from "~/components/LayoutWithList";
 import { cache } from "react";
+import { NavItem } from "~/components/Sidebar";
 
 export const metadata = {
   title: "Articles",
@@ -11,11 +10,12 @@ export const metadata = {
 
 const getArticles = cache(async () => await prisma.article.findMany());
 
-function articleToPath(article: Article): Path {
+function articleToPath(article: Article): NavItem {
   return {
     href: `/articles/${article.slug}`,
-    title: article.title,
+    name: article.title,
+    current: false,
   };
 }
 
-export default LayoutWithList(getArticles, articleToPath, ArticlesNavItem);
+export default LayoutWithList(getArticles, articleToPath);

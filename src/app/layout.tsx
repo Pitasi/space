@@ -1,7 +1,6 @@
 import { SquircleShapeProvider } from "~/components/Squircle";
-import { Navigation } from "../components/Navigation";
 import "../styles/globals.css";
-import { RootNavItem } from "./RootNavItem";
+import Sidebar from "~/components/Sidebar/Sidebar";
 
 export const revalidate = 0;
 
@@ -13,10 +12,10 @@ export const metadata = {
 };
 
 const paths = [
-  { href: "/", title: "Home" },
-  { href: "/articles", title: "Articles" },
-  { href: "/ama", title: "AMA" },
-  { href: "/stack", title: "Stack" },
+  { name: "Home", href: "/", current: false },
+  { name: "Articles", href: "/articles", current: false },
+  { name: "AMA", href: "/ama", current: false },
+  { name: "Stack", href: "/stack", current: false },
 ];
 
 export default function RootLayout({
@@ -25,17 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <header>
-          <Navigation
-            className="bg-green-200"
-            paths={paths}
-            itemComponent={RootNavItem}
-          />
-        </header>
-        <main>{children}</main>
+    <html lang="en" className="h-full">
+      <body className="h-full">
         <SquircleShapeProvider />
+        <div className="flex min-h-full flex-col lg:flex-row">
+          <Sidebar navigation={paths} />
+          {children}
+        </div>
       </body>
     </html>
   );

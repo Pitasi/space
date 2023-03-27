@@ -1,26 +1,25 @@
-import { ItemComponent, Navigation, Path } from "~/components/Navigation";
+import SecondarySidebar from "./Sidebar/SecondarySidebar";
+import { NavItem } from "./Sidebar";
 
 export type ListGetter<T> = () => Promise<T[]>;
 
-export type ItemToPathFn<ItemT> = (item: ItemT) => Path;
+export type ItemToPathFn<ItemT> = (item: ItemT) => NavItem;
 
 export default function LayoutWithList<ItemT>(
   getter: ListGetter<ItemT>,
-  itemToPath: ItemToPathFn<ItemT>,
-  navItemComponent: ItemComponent
+  itemToPath: ItemToPathFn<ItemT>
 ) {
   return async function (props: { children: React.ReactNode }) {
     const items = await getter();
 
     return (
-      <div>
-        <Navigation
-          className="bg-red-200"
-          paths={items.map(itemToPath)}
-          itemComponent={navItemComponent}
+      <main className="flex flex-row">
+        <SecondarySidebar
+          className="hidden min-h-full only:block lg:block"
+          navigation={items.map((i) => itemToPath(i))}
         />
         {props.children}
-      </div>
+      </main>
     );
   };
 }
