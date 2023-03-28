@@ -11,13 +11,6 @@ export const metadata = {
   },
 };
 
-const paths = [
-  { name: "Home", href: "/", current: false },
-  { name: "Articles", href: "/articles", current: false },
-  { name: "AMA", href: "/ama", current: false },
-  { name: "Stack", href: "/stack", current: false },
-];
-
 export default function RootLayout({
   children,
 }: {
@@ -28,7 +21,7 @@ export default function RootLayout({
       <body className="h-full">
         <SquircleShapeProvider />
         <div className="flex min-h-full flex-col lg:flex-row">
-          <Sidebar navigation={paths} />
+          <Sidebar />
           {children}
         </div>
       </body>

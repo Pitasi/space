@@ -14,7 +14,6 @@ function articleToPath(article: Article): NavItem {
   return {
     href: `/articles/${article.slug}`,
     name: article.title,
-    current: false,
   };
 }
 
