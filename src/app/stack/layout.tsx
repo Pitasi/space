@@ -14,7 +14,6 @@ function appToPath(app: App): NavItem {
   return {
     href: `/stack/${app.slug}`,
     name: app.title,
-    current: false,
   };
 }
 

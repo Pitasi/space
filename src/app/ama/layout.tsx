@@ -14,7 +14,6 @@ function questionToPath(q: AmaQuestion): NavItem {
   return {
     href: `/ama/${q.id}`,
     name: q.question,
-    current: false,
   };
 }
 
