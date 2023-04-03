@@ -84,7 +84,7 @@ export default function Sidebar() {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 px-6 pb-2 text-fantasy-900">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 px-6 pb-2 text-fantasy-900 dark:bg-fantasy-900 dark:text-fantasy-100">
                   <div className="mt-2 flex shrink-0 flex-row items-center gap-1 rounded-2xl bg-fantasy-300/5 p-2">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
                       <Image
@@ -113,8 +113,8 @@ export default function Sidebar() {
                                 }
                                 href={item.href}
                                 className={cn(
-                                  "data-active:bg-fantasy-900 data-active:shadow-sm",
-                                  "hover:bg-fantasy-900",
+                                  "data-active:bg-fantasy-100 data-active:shadow-sm dark:data-active:bg-fantasy-900",
+                                  "hover:bg-fantasy-100 dark:hover:bg-fantasy-900",
                                   "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                                 )}
                               >
@@ -141,7 +141,7 @@ export default function Sidebar() {
 
       <Desktop navigation={navigation} />
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-fantasy-200 py-4 px-4 text-fantasy-900 shadow-sm dark:bg-fantasy-950 sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-fantasy-200 py-4 px-4 text-fantasy-900 shadow-sm dark:bg-fantasy-950 dark:text-fantasy-100 sm:px-6 lg:hidden">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"

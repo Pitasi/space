@@ -30,8 +30,8 @@ export function Desktop(props: { navigation: NavItem[] }) {
                   <NavLink
                     href={item.href}
                     className={cn(
-                      "data-active:bg-fantasy-900 data-active:shadow-sm",
-                      "hover:bg-fantasy-900",
+                      "data-active:bg-fantasy-100 data-active:shadow-sm dark:data-active:bg-fantasy-900",
+                      "hover:bg-fantasy-100 dark:hover:bg-fantasy-900",
                       "group z-10 flex items-center gap-x-3 rounded-md px-4 py-2 text-sm font-semibold leading-6"
                     )}
                   >

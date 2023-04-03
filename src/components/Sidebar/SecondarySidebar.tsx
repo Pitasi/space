@@ -21,8 +21,8 @@ export default function SecondarySidebar(props: {
                 <NavLink
                   href={item.href}
                   className={cn(
-                    "data-active:bg-fantasy-900 data-active:shadow-sm",
-                    "hover:bg-fantasy-900",
+                    "data-active:bg-fantasy-100 data-active:shadow-sm dark:data-active:bg-fantasy-900",
+                    "hover:bg-fantasy-100 dark:hover:bg-fantasy-900",
                     "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                   )}
                 >
