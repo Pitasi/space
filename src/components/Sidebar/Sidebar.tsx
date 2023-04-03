@@ -113,8 +113,8 @@ export default function Sidebar() {
                                 }
                                 href={item.href}
                                 className={cn(
-                                  "data-active:bg-fantasy-100 data-active:shadow-sm",
-                                  "hover:bg-fantasy-100",
+                                  "data-active:bg-fantasy-900 data-active:shadow-sm",
+                                  "hover:bg-fantasy-900",
                                   "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                                 )}
                               >
@@ -141,7 +141,7 @@ export default function Sidebar() {
 
       <Desktop navigation={navigation} />
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-fantasy-200 py-4 px-4 text-fantasy-900 shadow-sm sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-fantasy-200 py-4 px-4 text-fantasy-900 shadow-sm dark:bg-fantasy-950 sm:px-6 lg:hidden">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"

@@ -3,11 +3,11 @@ import { CheckCircle, Info } from "lucide-react";
 export function Content(props: { title: string }) {
   return (
     <div className="px-16 py-12 lg:px-8">
-      <div className="mx-auto max-w-2xl text-base leading-7 text-fantasy-900">
+      <div className="mx-auto max-w-2xl text-base leading-7 text-fantasy-900 dark:text-fantasy-150">
         <p className="text-base font-semibold leading-7 text-fantasy-600">
           Introducing
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-fantasy-950 sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-fantasy-950 dark:text-fantasy-100 sm:text-4xl">
           {props.title}
         </h1>
         <p className="mt-6 text-xl leading-8">
@@ -25,14 +25,17 @@ export function Content(props: { title: string }) {
             Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
             sed turpis id.
           </p>
-          <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
+          <ul
+            role="list"
+            className="mt-8 max-w-xl space-y-8 text-gray-600 dark:text-fantasy-150"
+          >
             <li className="flex gap-x-3">
               <CheckCircle
                 className="mt-1 h-5 w-5 flex-none text-fantasy-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold text-gray-900">
+                <strong className="font-semibold text-gray-900 dark:text-fantasy-100">
                   Data types.
                 </strong>{" "}
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -42,11 +45,11 @@ export function Content(props: { title: string }) {
             </li>
             <li className="flex gap-x-3">
               <CheckCircle
-                className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                className="mt-1 h-5 w-5 flex-none text-fantasy-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold text-fantasy-950">
+                <strong className="font-semibold text-fantasy-950 dark:text-fantasy-100">
                   Loops.
                 </strong>{" "}
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
@@ -55,11 +58,13 @@ export function Content(props: { title: string }) {
             </li>
             <li className="flex gap-x-3">
               <CheckCircle
-                className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                className="mt-1 h-5 w-5 flex-none text-fantasy-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold text-gray-900">Events.</strong>{" "}
+                <strong className="font-semibold text-gray-900 dark:text-fantasy-100">
+                  Events.
+                </strong>{" "}
                 Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.
                 Et magna sit morbi lobortis.
               </span>
@@ -72,7 +77,7 @@ export function Content(props: { title: string }) {
             hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem
             vel integer orci.
           </p>
-          <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900 dark:text-fantasy-100">
             From beginner to expert in 3 hours
           </h2>
           <p className="mt-6">
@@ -83,8 +88,8 @@ export function Content(props: { title: string }) {
             Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis
             diam.
           </p>
-          <figure className="mt-10 border-l border-indigo-600 pl-9">
-            <blockquote className="font-semibold text-gray-900">
+          <figure className="mt-10 border-l border-fantasy-600 pl-9">
+            <blockquote className="font-semibold text-gray-900 dark:text-fantasy-100">
               <p>
                 “Vel ultricies morbi odio facilisi ultrices accumsan donec lacus
                 purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus
@@ -99,7 +104,7 @@ export function Content(props: { title: string }) {
                 alt=""
               />
               <div className="text-sm leading-6">
-                <strong className="font-semibold text-gray-900">
+                <strong className="font-semibold text-gray-900 dark:text-fantasy-100">
                   Maria Hill
                 </strong>{" "}
                 – Marketing Manager
@@ -119,16 +124,16 @@ export function Content(props: { title: string }) {
             src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3"
             alt=""
           />
-          <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+          <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500 dark:text-fantasy-400">
             <Info
-              className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+              className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-fantasy-200"
               aria-hidden="true"
             />
             Faucibus commodo massa rhoncus, volutpat.
           </figcaption>
         </figure>
         <div className="mt-16 max-w-2xl">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-fantasy-100">
             Everything you need to get up and running
           </h2>
           <p className="mt-6">

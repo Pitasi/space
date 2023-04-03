@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const config = {
+  darkMode: "media",
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -22,6 +23,7 @@ const config = {
           DEFAULT: "#FCF6F5",
           50: "#FFFFFF",
           100: "#FCF6F5",
+          150: "#C7C0BD",
           200: "#EFCFCA",
           300: "#E2A89F",
           400: "#D58174",

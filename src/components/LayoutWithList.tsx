@@ -19,7 +19,7 @@ export default function LayoutWithList<ItemT>(
           navigation={items.map((i) => itemToPath(i))}
         />
 
-        <article className="flex w-full overflow-scroll rounded-l-3xl bg-fantasy-100">
+        <article className="flex w-full overflow-scroll rounded-l-3xl bg-fantasy-100 dark:bg-black">
           {props.children}
         </article>
       </section>
