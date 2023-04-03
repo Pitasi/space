@@ -13,13 +13,13 @@ export default function LayoutWithList<ItemT>(
     const items = await getter();
 
     return (
-      <main className="flex flex-row">
+      <section className="flex flex-row">
         <SecondarySidebar
           className="hidden min-h-full only:block lg:block"
           navigation={items.map((i) => itemToPath(i))}
         />
         {props.children}
-      </main>
+      </section>
     );
   };
 }

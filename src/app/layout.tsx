@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="h-full">
+    <html lang="en" className="h-screen">
+      <body className="h-screen">
         <SquircleShapeProvider />
-        <div className="flex min-h-full flex-col lg:flex-row">
+        <div className="flex flex-col lg:flex-row">
           <Sidebar />
           {children}
         </div>

@@ -1,6 +1,7 @@
 import { prisma } from "~/server/db";
 import { WithGetter } from "~/components/WithGetter";
 import { cache } from "react";
+import { Content } from "~/components/Content";
 
 const getArticle = cache(
   async ({ slug }: { slug: string }) =>
@@ -20,9 +21,8 @@ export async function generateMetadata({
 
 export default WithGetter(getArticle, ({ data }) => {
   return (
-    <div>
-      <h1 className="text-xl font-bold">{data.title}</h1>
-      <p>{data.content}</p>
-    </div>
+    <article className="h-full overflow-scroll rounded-l-3xl bg-fantasy-100 ">
+      <Content title={data.title} />
+    </article>
   );
 });
