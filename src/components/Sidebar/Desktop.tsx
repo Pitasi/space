@@ -10,7 +10,7 @@ export function Desktop(props: { navigation: NavItem[] }) {
       className="hidden grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 p-6 text-fantasy-950 lg:z-50 lg:flex lg:min-h-full lg:w-56 lg:flex-col"
       style={{ clipPath: "url(#sidebarClip)" }}
     >
-      <div className="flex flex-row items-center gap-1 rounded-2xl bg-fantasy-500/5 p-2">
+      <div className="flex flex-row items-center gap-1 rounded-2xl bg-fantasy-300/5 p-2">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
           <Image
             className="w-auto"
@@ -21,7 +21,7 @@ export function Desktop(props: { navigation: NavItem[] }) {
         </div>
         <div className="flex flex-col">
           <span className="text-md font-bold">Antonio Pitasi</span>
-          <span className="text-xs text-opacity-60">Personal space</span>
+          <span className="text-xs text-opacity-60">A personal space</span>
         </div>
       </div>
       <nav className="flex flex-1 flex-col">
@@ -34,7 +34,7 @@ export function Desktop(props: { navigation: NavItem[] }) {
                     href={item.href}
                     className={cn(
                       "data-active:bg-fantasy-100 data-active:shadow-sm",
-                      "hover:bg-fantasy-200",
+                      "hover:bg-fantasy-100",
                       "group z-10 flex items-center gap-x-3 rounded-md px-4 py-2 text-sm font-semibold leading-6"
                     )}
                   >

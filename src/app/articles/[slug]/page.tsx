@@ -20,9 +20,5 @@ export async function generateMetadata({
 }
 
 export default WithGetter(getArticle, ({ data }) => {
-  return (
-    <article className="h-full overflow-scroll rounded-l-3xl bg-fantasy-100 ">
-      <Content title={data.title} />
-    </article>
-  );
+  return <Content title={data.title} />;
 });

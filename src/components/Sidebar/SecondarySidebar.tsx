@@ -9,7 +9,7 @@ export default function SecondarySidebar(props: {
   return (
     <nav
       className={cn(
-        "flex w-full grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 p-6 text-fantasy-950 lg:flex lg:min-h-full lg:w-72 lg:flex-col",
+        "flex w-full grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 p-6 text-fantasy-950 lg:flex lg:min-h-full lg:w-72 lg:grow-0 lg:flex-col",
         props.className
       )}
     >
@@ -22,7 +22,7 @@ export default function SecondarySidebar(props: {
                   href={item.href}
                   className={cn(
                     "data-active:bg-fantasy-100 data-active:shadow-sm",
-                    "hover:bg-fantasy-200",
+                    "hover:bg-fantasy-100",
                     "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                   )}
                 >

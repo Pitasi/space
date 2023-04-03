@@ -13,12 +13,15 @@ export default function LayoutWithList<ItemT>(
     const items = await getter();
 
     return (
-      <section className="flex flex-row">
+      <section className="flex w-full flex-col lg:flex-row">
         <SecondarySidebar
-          className="hidden min-h-full only:block lg:block"
+          className="block max-lg:[&:has(+*:not(:empty))]:hidden"
           navigation={items.map((i) => itemToPath(i))}
         />
-        {props.children}
+
+        <article className="flex w-full overflow-scroll rounded-l-3xl bg-fantasy-100 empty:hidden">
+          {props.children}
+        </article>
       </section>
     );
   };

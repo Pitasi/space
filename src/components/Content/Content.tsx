@@ -3,11 +3,11 @@ import { CheckCircle, Info } from "lucide-react";
 export function Content(props: { title: string }) {
   return (
     <div className="px-16 py-12 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-        <p className="text-base font-semibold leading-7 text-indigo-600">
+      <div className="mx-auto max-w-2xl text-base leading-7 text-fantasy-900">
+        <p className="text-base font-semibold leading-7 text-fantasy-600">
           Introducing
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-fantasy-950 sm:text-4xl">
           {props.title}
         </h1>
         <p className="mt-6 text-xl leading-8">
@@ -16,7 +16,7 @@ export function Content(props: { title: string }) {
           feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
           Eleifend egestas fringilla sapien.
         </p>
-        <div className="mt-10 max-w-2xl">
+        <div className="mt-10 max-w-2xl leading-9">
           <p>
             Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
             enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
@@ -28,7 +28,7 @@ export function Content(props: { title: string }) {
           <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
             <li className="flex gap-x-3">
               <CheckCircle
-                className="mt-1 h-5 w-5 flex-none text-indigo-600"
+                className="mt-1 h-5 w-5 flex-none text-fantasy-600"
                 aria-hidden="true"
               />
               <span>
@@ -46,7 +46,9 @@ export function Content(props: { title: string }) {
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold text-gray-900">Loops.</strong>{" "}
+                <strong className="font-semibold text-fantasy-950">
+                  Loops.
+                </strong>{" "}
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
                 lorem cupidatat commodo.
               </span>

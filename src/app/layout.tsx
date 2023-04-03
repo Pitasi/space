@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="h-screen">
       <body className="h-screen">
         <SquircleShapeProvider />
-        <div className="flex flex-col lg:flex-row">
+        <div className="flex h-full flex-col lg:flex-row">
           <Sidebar />
           {children}
         </div>
