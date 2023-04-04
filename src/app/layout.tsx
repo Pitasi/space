@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-screen dark:bg-fantasy-950">
+    <html
+      lang="en"
+      className="h-screen bg-beige-200 dark:bg-midnight-700 dark:text-neutral"
+    >
       <body className="h-screen">
         <SquircleShapeProvider />
         <div className="flex h-full flex-col lg:flex-row">

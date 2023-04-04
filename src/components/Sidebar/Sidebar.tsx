@@ -10,11 +10,9 @@ import {
   MessageCircle,
   LayoutGrid,
 } from "lucide-react";
-import { cn } from "~/utils/tw";
-import Image from "next/image";
-import { NavLink } from "../NavLink/NavLink";
-import Icon from "~/fixtures/logo_icon.png";
 import { Desktop } from "./Desktop";
+import { SidebarItem } from "./SidebarItem";
+import { SidebarLogo } from "./SidebarLogo";
 
 export type NavItem = {
   name: string;
@@ -49,7 +47,7 @@ export default function Sidebar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-fantasy-950/60" />
+            <div className="fixed inset-0 bg-gray-900/60" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -84,48 +82,20 @@ export default function Sidebar() {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-fantasy-50 px-6 pb-2 text-fantasy-900 dark:bg-fantasy-900 dark:text-fantasy-100">
-                  <div className="mt-2 flex shrink-0 flex-row items-center gap-1 rounded-2xl bg-fantasy-300/5 p-2">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl">
-                      <Image
-                        className="w-auto"
-                        height={24}
-                        src={Icon}
-                        alt="Antonio Pitasi"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-md font-bold">Antonio Pitasi</span>
-                      <span className="text-xs text-opacity-60">
-                        A personal space
-                      </span>
-                    </div>
-                  </div>
+                <div className="flex grow flex-col gap-y-12 overflow-y-auto bg-beige-200 px-6 py-8 dark:bg-midnight-700">
+                  <SidebarLogo />
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
                             <li key={item.name}>
-                              <NavLink
+                              <SidebarItem
                                 onClick={() =>
                                   sidebarOpen && setSidebarOpen(false)
                                 }
-                                href={item.href}
-                                className={cn(
-                                  "data-active:bg-fantasy-100 data-active:shadow-sm dark:data-active:bg-fantasy-900",
-                                  "hover:bg-fantasy-100 dark:hover:bg-fantasy-900",
-                                  "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
-                                )}
-                              >
-                                {item.icon && (
-                                  <item.icon
-                                    className={cn("h-4 w-4 shrink-0")}
-                                    aria-hidden="true"
-                                  />
-                                )}
-                                {item.name}
-                              </NavLink>
+                                {...item}
+                              />
                             </li>
                           ))}
                         </ul>
@@ -141,7 +111,7 @@ export default function Sidebar() {
 
       <Desktop navigation={navigation} />
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-fantasy-200 py-4 px-4 text-fantasy-900 shadow-sm dark:bg-fantasy-950 dark:text-fantasy-100 sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 py-4 px-4 dark:bg-midnight-700 sm:px-6 lg:hidden">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"
@@ -150,9 +120,7 @@ export default function Sidebar() {
           <span className="sr-only">Open sidebar</span>
           <Menu className="h-6 w-6" aria-hidden="true" />
         </button>
-        <div className="flex-1 text-sm font-semibold leading-6">
-          Antonio Pitasi
-        </div>
+        <SidebarLogo small />
         {/* <Link href="#">
           <span className="sr-only">Your profile</span>
           <img
