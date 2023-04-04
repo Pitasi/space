@@ -13,16 +13,18 @@ export default function LayoutWithList<ItemT>(
     const items = await getter();
 
     return (
-      <section className="flex w-full flex-col lg:flex-row">
-        <SecondarySidebar
-          className="block max-lg:[&:has(+*:not(:empty))]:hidden"
-          navigation={items.map((i) => itemToPath(i))}
-        />
+      <div className="relative h-full w-full">
+        <section className="flex h-full w-full flex-col lg:flex-row">
+          <SecondarySidebar
+            className="block shrink"
+            navigation={items.map((i) => itemToPath(i))}
+          />
 
-        <article className="w-full overflow-y-auto bg-neutral dark:bg-midnight-600 lg:rounded-l-3xl">
-          {props.children}
-        </article>
-      </section>
+          <article className="absolute inset-0 h-full w-full overflow-y-auto bg-neutral empty:hidden dark:bg-midnight-600 lg:static lg:rounded-l-3xl">
+            {props.children}
+          </article>
+        </section>
+      </div>
     );
   };
 }

@@ -9,7 +9,7 @@ export default function SecondarySidebar(props: {
   return (
     <nav
       className={cn(
-        "flex w-full grow flex-col gap-y-5 overflow-y-auto p-6 lg:flex lg:min-h-full lg:w-72 lg:grow-0 lg:flex-col",
+        "flex w-full flex-col gap-y-5 overflow-y-auto p-6 lg:flex lg:min-h-full lg:w-72",
         props.className
       )}
     >
