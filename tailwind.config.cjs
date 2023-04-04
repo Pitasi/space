@@ -4,6 +4,7 @@ const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      /** @type {import('tailwindcss/types/config').ResolvableTo<Record<string, any>>} */
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
