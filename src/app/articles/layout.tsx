@@ -8,7 +8,9 @@ export const metadata = {
   title: "Articles",
 };
 
-const getArticles = cache(async () => await prisma.article.findMany());
+const getArticles = cache(async () => {
+  return await prisma.article.findMany();
+});
 
 function articleToPath(article: Article): NavItem {
   return {
