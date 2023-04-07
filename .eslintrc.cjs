@@ -22,6 +22,7 @@ const config = {
   extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@typescript-eslint/consistent-type-imports": ["off"],
+    "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "import/no-anonymous-default-export": ["off"],
   },

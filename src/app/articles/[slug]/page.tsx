@@ -1,15 +1,7 @@
-import { prisma } from "~/server/db";
 import { WithGetter } from "~/components/WithGetter";
-import { cache } from "react";
 import { Content } from "~/components/Content";
 import { MDXRemote } from "next-mdx-remote/rsc";
-
-const getArticle = cache(
-  async ({ slug }: { slug: string }) =>
-    await prisma.article.findFirst({
-      where: { slug },
-    })
-);
+import getArticle from "~/app/queries/getArticle";
 
 export async function generateMetadata({
   params,
