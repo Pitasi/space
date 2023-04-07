@@ -1,10 +1,8 @@
 import { cn } from "~/utils/tw";
-import { NavItem } from ".";
-import { SidebarItem } from "./SidebarItem";
 
 export default function SecondarySidebar(props: {
   className?: string | null;
-  navigation: NavItem[];
+  children: React.ReactNode;
 }) {
   return (
     <nav
@@ -16,11 +14,7 @@ export default function SecondarySidebar(props: {
       <ul role="list" className="flex flex-1 flex-col gap-y-7">
         <li>
           <ul role="list" className="-mx-2 space-y-1">
-            {props.navigation.map((item) => (
-              <li key={item.name}>
-                <SidebarItem {...item} />
-              </li>
-            ))}
+            {props.children}
           </ul>
         </li>
       </ul>

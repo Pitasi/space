@@ -1,8 +1,6 @@
-import { App } from "@prisma/client";
 import { prisma } from "~/server/db";
 import LayoutWithList from "~/components/LayoutWithList";
 import { cache } from "react";
-import { NavItem } from "~/components/Sidebar";
 
 export const metadata = {
   title: "Articles",
@@ -10,11 +8,9 @@ export const metadata = {
 
 const getApps = cache(async () => await prisma.app.findMany());
 
-function appToPath(app: App): NavItem {
-  return {
+export default LayoutWithList(getApps, (app) => ({
+  nav: {
     href: `/stack/${app.slug}`,
     name: app.title,
-  };
-}
-
-export default LayoutWithList(getApps, appToPath);
+  },
+}));

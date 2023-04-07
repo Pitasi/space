@@ -19,7 +19,9 @@ const config = {
           600: "#321D6A",
           700: "#1D0D42",
         },
-        neutral: "#FFFEFE",
+        neutral: {
+          DEFAULT: "#FFFEFE",
+        },
         forest: "#144E5A",
         beige: {
           200: "#FEF2E6",

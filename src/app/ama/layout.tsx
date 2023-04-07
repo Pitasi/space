@@ -1,8 +1,6 @@
-import { AmaQuestion } from "@prisma/client";
 import { prisma } from "~/server/db";
 import LayoutWithList from "~/components/LayoutWithList";
 import { cache } from "react";
-import { NavItem } from "~/components/Sidebar";
 
 export const metadata = {
   title: "AMA - Ask me anything!",
@@ -10,11 +8,9 @@ export const metadata = {
 
 const getQuestions = cache(async () => await prisma.amaQuestion.findMany());
 
-function questionToPath(q: AmaQuestion): NavItem {
-  return {
+export default LayoutWithList(getQuestions, (q) => ({
+  nav: {
     href: `/ama/${q.id}`,
     name: q.question,
-  };
-}
-
-export default LayoutWithList(getQuestions, questionToPath);
+  },
+}));

@@ -11,16 +11,16 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import { Desktop } from "./Desktop";
-import { SidebarItem } from "./SidebarItem";
+import { SidebarItem, SimpleItem } from "./SidebarItem";
 import { SidebarLogo } from "./SidebarLogo";
 
-export type NavItem = {
+export type NavItemInfo = {
   name: string;
   href: string;
   icon?: React.ComponentType<{ className?: string }>;
 };
 
-const navigation: NavItem[] = [
+const navigation: NavItemInfo[] = [
   { name: "Home", href: "/", icon: Home },
   { name: "Articles", href: "/articles", icon: PenTool },
   { name: "AMA", href: "/ama", icon: MessageCircle },
@@ -94,8 +94,10 @@ export default function Sidebar() {
                                 onClick={() =>
                                   sidebarOpen && setSidebarOpen(false)
                                 }
-                                {...item}
-                              />
+                                href={item.href}
+                              >
+                                <SimpleItem {...item} />
+                              </SidebarItem>
                             </li>
                           ))}
                         </ul>

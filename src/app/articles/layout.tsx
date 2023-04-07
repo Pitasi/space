@@ -2,7 +2,7 @@ import { Article } from "@prisma/client";
 import { prisma } from "~/server/db";
 import LayoutWithList from "~/components/LayoutWithList";
 import { cache } from "react";
-import { NavItem } from "~/components/Sidebar";
+import { TwoLinesNavItem } from "~/components/TwoLinesItem";
 
 export const metadata = {
   title: "Articles",
@@ -12,11 +12,21 @@ const getArticles = cache(async () => {
   return await prisma.article.findMany();
 });
 
-function articleToPath(article: Article): NavItem {
+export default LayoutWithList(getArticles, (article: Article) => {
   return {
-    href: `/articles/${article.slug}`,
-    name: article.title,
+    nav: {
+      href: `/articles/${article.slug}`,
+      name: article.title,
+    },
+    comp: (
+      <div className="flex flex-col">
+        <TwoLinesNavItem>
+          {article.title}
+          {article.createdAt.toLocaleDateString(new Intl.Locale("en-US"), {
+            dateStyle: "medium",
+          })}
+        </TwoLinesNavItem>
+      </div>
+    ),
   };
-}
-
-export default LayoutWithList(getArticles, articleToPath);
+});

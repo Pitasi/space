@@ -1,8 +1,8 @@
-import { NavItem } from "./Sidebar";
-import { SidebarItem } from "./SidebarItem";
+import { NavItemInfo } from "./Sidebar";
+import { SidebarItem, SimpleItem } from "./SidebarItem";
 import { SidebarLogo } from "./SidebarLogo";
 
-export function Desktop(props: { navigation: NavItem[] }) {
+export function Desktop(props: { navigation: NavItemInfo[] }) {
   return (
     <div className="hidden grow flex-col gap-y-16 overflow-y-auto border-r-2 border-wood/5 p-6 dark:border-midnight-700/20 lg:z-50 lg:flex lg:min-h-full lg:w-56 lg:flex-col">
       <SidebarLogo />
@@ -12,7 +12,9 @@ export function Desktop(props: { navigation: NavItem[] }) {
             <ul role="list" className="-mx-2 space-y-1">
               {props.navigation.map((item) => (
                 <li key={item.name}>
-                  <SidebarItem {...item} />
+                  <SidebarItem href={item.href}>
+                    <SimpleItem {...item} />
+                  </SidebarItem>
                 </li>
               ))}
             </ul>
