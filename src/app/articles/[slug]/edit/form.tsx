@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 export const Schema = z.object({
@@ -14,7 +14,7 @@ type SchemaType = z.infer<typeof Schema>;
 export function Form(props: {
   title: string;
   content: string;
-  onSubmit: SubmitHandler<SchemaType>;
+  onSubmit: (data: SchemaType) => Promise<void>;
 }) {
   const {
     register,
@@ -23,7 +23,7 @@ export function Form(props: {
   } = useForm<SchemaType>({
     resolver: zodResolver(Schema),
   });
-  const onSubmit = handleSubmit(props.onSubmit);
+  const onSubmit = handleSubmit((d) => props.onSubmit(d));
 
   return (
     <form className="flex flex-col gap-4" onSubmit={onSubmit}>
