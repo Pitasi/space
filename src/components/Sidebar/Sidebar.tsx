@@ -7,8 +7,8 @@ import {
   X,
   Home,
   PenTool,
-  MessageCircle,
-  LayoutGrid,
+  // MessageCircle,
+  // LayoutGrid,
 } from "lucide-react";
 import { Desktop } from "./Desktop";
 import { SidebarItem, SimpleItem } from "./SidebarItem";
@@ -23,8 +23,8 @@ export type NavItemInfo = {
 const navigation: NavItemInfo[] = [
   { name: "Home", href: "/", icon: Home },
   { name: "Articles", href: "/articles", icon: PenTool },
-  { name: "AMA", href: "/ama", icon: MessageCircle },
-  { name: "Stack", href: "/stack", icon: LayoutGrid },
+  // { name: "AMA", href: "/ama", icon: MessageCircle },
+  // { name: "Stack", href: "/stack", icon: LayoutGrid },
 ];
 
 export default function Sidebar() {
