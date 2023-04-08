@@ -2,6 +2,7 @@ import { WithGetter } from "~/components/WithGetter";
 import { Content } from "~/components/Content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import getArticle from "~/app/queries/getArticle";
+import { WithComments } from "~/components/WithComments";
 
 export async function generateMetadata({
   params,
@@ -14,9 +15,11 @@ export async function generateMetadata({
 
 export default WithGetter(getArticle, ({ data }) => {
   return (
-    <Content title={data.title}>
-      {/* @ts-expect-error Server Component */}
-      <MDXRemote source={data.content} />
-    </Content>
+    <WithComments comments={data.comment}>
+      <Content title={data.title}>
+        {/* @ts-expect-error Server Component */}
+        <MDXRemote source={data.content} />
+      </Content>
+    </WithComments>
   );
 });
