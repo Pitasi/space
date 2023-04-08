@@ -1,8 +1,12 @@
+import Link from "next/link";
 import { NavItemInfo } from "./Sidebar";
 import { SidebarItem, SimpleItem } from "./SidebarItem";
 import { SidebarLogo } from "./SidebarLogo";
+import { useSession } from "next-auth/react";
 
 export function Desktop(props: { navigation: NavItemInfo[] }) {
+  const { data: session } = useSession();
+
   return (
     <div className="hidden grow flex-col gap-y-16 overflow-y-auto border-r-2 border-wood/5 p-6 dark:border-midnight-700/20 lg:z-50 lg:flex lg:min-h-full lg:w-56 lg:flex-col">
       <SidebarLogo />
@@ -35,6 +39,15 @@ export function Desktop(props: { navigation: NavItemInfo[] }) {
                 </Link> */}
           </li>
         </ul>
+
+        {session ? (
+          <div className="flex flex-col">
+            <p>Logged in as {session.user.name}</p>
+            <Link href="/api/auth/signout">Logout</Link>
+          </div>
+        ) : (
+          <Link href="/api/auth/signin">Sign in</Link>
+        )}
       </nav>
     </div>
   );

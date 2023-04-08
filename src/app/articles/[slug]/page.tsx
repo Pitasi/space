@@ -15,11 +15,14 @@ export async function generateMetadata({
 
 export default WithGetter(getArticle, ({ data }) => {
   return (
-    <WithComments comments={data.comment}>
-      <Content title={data.title}>
-        {/* @ts-expect-error Server Component */}
-        <MDXRemote source={data.content} />
-      </Content>
-    </WithComments>
+    <>
+      {/* @ts-expect-error Server Component */}
+      <WithComments comments={data.comment} kind="article" id={data.id}>
+        <Content title={data.title}>
+          {/* @ts-expect-error Server Component */}
+          <MDXRemote source={data.content} />
+        </Content>
+      </WithComments>
+    </>
   );
 });

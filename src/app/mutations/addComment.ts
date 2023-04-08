@@ -2,9 +2,9 @@ import { z } from "zod";
 import { prisma } from "~/server/db";
 
 const schema = z.object({
-  content: z.string(),
-  authorId: z.string(),
-  toId: z.string(),
+  content: z.string().nonempty(),
+  authorId: z.string().nonempty(),
+  toId: z.string().nonempty(),
 });
 
 type SchemaType = z.infer<typeof schema>;
