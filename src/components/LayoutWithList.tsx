@@ -1,6 +1,5 @@
-import SecondarySidebar from "./Sidebar/SecondarySidebar";
-import { NavItemInfo } from "./Sidebar";
-import { SidebarItem, SimpleItem } from "./Sidebar/SidebarItem";
+import { NavItemInfo } from "./oldSidebar";
+import { Sidebar, SidebarNav, SidebarNavItem } from "./sidebar";
 
 export type ListGetter<T> = () => Promise<T[]>;
 
@@ -21,15 +20,18 @@ export default function LayoutWithList<ItemT>(
     return (
       <div className="relative h-full w-full">
         <section className="flex h-full w-full flex-col lg:flex-row">
-          <SecondarySidebar className="block shrink-0">
-            {items.map(itemToPath).map((item) => (
-              <li key={item.nav.name}>
-                <SidebarItem key={item.nav.name} href={item.nav.href}>
+          <Sidebar className="block shrink-0">
+            <SidebarNav>
+              {items.map(itemToPath).map((item) => (
+                <li key={item.nav.name}>
+                  <SidebarNavItem />
+                  {/* <SidebarNavItem key={item.nav.name} href={item.nav.href}>
                   {item.comp || <SimpleItem {...item.nav} />}
-                </SidebarItem>
-              </li>
-            ))}
-          </SecondarySidebar>
+                </SidebarNavItem> */}
+                </li>
+              ))}
+            </SidebarNav>
+          </Sidebar>
 
           <article className="absolute inset-0 h-full w-full overflow-y-auto bg-neutral empty:hidden dark:bg-midnight-600 lg:static lg:rounded-l-3xl">
             {props.children}
