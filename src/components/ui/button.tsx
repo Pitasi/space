@@ -1,4 +1,4 @@
-import { classed } from "@tw-classed/react";
+import { classed } from "~/utils/tw";
 
 const Button = classed(
   "button",

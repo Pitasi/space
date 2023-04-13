@@ -1,7 +1,4 @@
-import { SquircleShapeProvider } from "~/components/Squircle";
-import "../styles/globals.css";
-
-import { ChevronLeft, Heart, Home, Mail, Plus } from "lucide-react";
+import { ChevronLeft, Heart, Home, Mail } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { cn } from "~/utils/tw";
 import { Button } from "~/components/ui/button";
@@ -10,64 +7,39 @@ import { TypographyP } from "~/components/ui/typography/TypographyP";
 import { TypographyH2 } from "~/components/ui/typography/TypographyH2";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import Icon from "~/fixtures/logo_icon.png";
-import { darkerGrotesque, inter } from "~/utils/fonts";
 
-export const revalidate = 0;
-
-export const metadata = {
-  title: {
-    default: "Antonio Pitasi",
-    template: "%s - Antonio Pitasi",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function NeuArticles() {
   return (
-    <html
-      lang="en"
-      className={cn(
-        "h-screen bg-beige-200 dark:bg-midnight-700 dark:text-neutral",
-        inter.variable,
-        darkerGrotesque.variable
-      )}
-    >
-      <body className="h-screen overflow-hidden">
-        <SquircleShapeProvider />
-
-        <div className="grid h-full bg-jasmine lg:grid-cols-[24rem_1fr]">
-          <div className="flex flex-row ">
-            <Sidebar className="hidden bg-lightviolet lg:block">
-              <SidebarHeader title="Antonio Pitasi" imageSrc={Icon} />
-              <SidebarNav>
-                <SidebarNavItem />
-                <SidebarNavItem />
-                <SidebarNavItem />
-              </SidebarNav>
-            </Sidebar>
-            <Sidebar className="hidden bg-acid lg:block">
-              <SidebarHeader title="Blog" />
-              <SidebarNav>
-                <SidebarNavItem />
-                <SidebarNavItem />
-                <SidebarNavItem />
-              </SidebarNav>
-            </Sidebar>
-          </div>
-
-          <div className="overflow-auto">
-            <Header />
-            <Navbar className="lg:hidden" />
-            <Card />
-            <Comments />
-            <div className="h-10 lg:hidden" />
-          </div>
+    <div className="h-screen overflow-hidden">
+      <div className="grid h-full bg-jasmine lg:grid-cols-[24rem_1fr]">
+        <div className="flex flex-row ">
+          <Sidebar className="hidden bg-lightviolet lg:block">
+            <SidebarHeader title="Antonio Pitasi" imageSrc={Icon} />
+            <SidebarNav>
+              <SidebarNavItem />
+              <SidebarNavItem />
+              <SidebarNavItem />
+            </SidebarNav>
+          </Sidebar>
+          <Sidebar className="hidden bg-seafoam lg:block">
+            <SidebarHeader title="Blog" />
+            <SidebarNav>
+              <SidebarNavItem />
+              <SidebarNavItem />
+              <SidebarNavItem />
+            </SidebarNav>
+          </Sidebar>
         </div>
-      </body>
-    </html>
+
+        <div className="overflow-auto p-4">
+          <Header />
+          <Navbar className="lg:hidden" />
+          <Card />
+          <Comments />
+          <div className="h-20 lg:hidden" />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -81,7 +53,7 @@ function Sidebar({
   return (
     <div
       className={cn(
-        "w-full space-y-8 overflow-auto border-r-2 border-black p-4",
+        "w-full space-y-8 overflow-auto border-r border-liver p-4",
         className
       )}
     >
@@ -135,7 +107,7 @@ function Navbar({ className }: { className?: string }) {
   return (
     <nav
       className={cn(
-        "fixed bottom-0 left-0 z-10 flex h-12 w-full flex-row items-center justify-around border-t-2 border-black bg-acid",
+        "fixed bottom-0 left-0 flex h-20 w-full flex-row items-center justify-around border-t-2 border-black bg-seafoam",
         className
       )}
     >
@@ -151,7 +123,7 @@ function Header({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "flex w-full items-center justify-between border-b-2 border-black bg-yellow py-4 px-4 lg:justify-end",
+        "flex w-full items-center justify-between pb-4 lg:justify-end lg:px-4",
         className
       )}
     >
@@ -168,7 +140,7 @@ function Header({ className }: { className?: string }) {
 
 function Hearts() {
   return (
-    <div className="flex flex-row items-center justify-center gap-2 font-neu text-3xl font-bold">
+    <div className="flex flex-row items-center gap-2 text-xl font-bold">
       <Heart fill="red" color="black" className="drop-shadow-neu-2" />
       <span>42</span>
     </div>
@@ -177,8 +149,8 @@ function Hearts() {
 
 function Card() {
   return (
-    <article className="w-full bg-floralwhite p-8">
-      <TypographyH1 className="font-neu">Article Title</TypographyH1>
+    <article className="mb-8 w-full rounded-md border-2 border-black bg-floralwhite p-4 shadow-neu-2">
+      <TypographyH1 variant="neubrutal">Article Title</TypographyH1>
       <TypographyH2>subtitle</TypographyH2>
       <TypographyP>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -211,16 +183,8 @@ function Card() {
 
 function Comments() {
   return (
-    <section className="bg-floralwhite">
-      <div className="space-y-4 border-y-2 border-black bg-violet px-8 py-24">
-        <h1 className="font-neu text-6xl font-bold">Comments section</h1>
-        <Button variant="link" className="px-0">
-          <Plus />
-          <h2 className="flex items-center gap-2 text-xl text-eerie">
-            Click here to add yours
-          </h2>
-        </Button>
-      </div>
+    <section>
+      <h1 className="mb-6 text-lg font-bold">Comments</h1>
       <div className="flex flex-col gap-4">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((comment) => (
           <CommentCard key={comment} />
@@ -232,22 +196,29 @@ function Comments() {
 
 function CommentCard() {
   return (
-    <div className="grid grid-cols-[3rem_1fr] grid-rows-[auto_1fr] gap-y-1 gap-x-4 border-b-2 border-black py-8 px-8">
-      <Avatar className="row-span-2 aspect-square h-auto w-full border-2 border-black shadow-neu-2">
-        <AvatarImage src="https://github.com/shadcn.png" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-
-      <div className="flex flex-row justify-start gap-2">
-        <span className="font-semibold text-black">John Doe</span>
+    <div className="flex flex-col gap-4 rounded-md border-2 border-black bg-floralwhite p-4 shadow-neu-1">
+      <div className="flex flex-row justify-start gap-2 text-liver">
+        <User />
         <p className="leading-snug">·</p>
-        <span className="text-liver">2 hours ago</span>
+        <span>2 hours ago</span>
       </div>
 
       <span>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
         voluptates, quod, quia, voluptatibus quae
       </span>
+    </div>
+  );
+}
+
+function User() {
+  return (
+    <div className="align-center flex flex-row items-center gap-2 text-black">
+      <Avatar className="h-6 w-6">
+        <AvatarImage src="https://github.com/shadcn.xpng" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <span>John Doe</span>
     </div>
   );
 }

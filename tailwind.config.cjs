@@ -39,14 +39,21 @@ const config = {
         vomit: "#BAFFA3",
         ligthsalmon: "#FFA776",
         jasmine: "#FFD787",
-        violet: "#CFADE8",
+        // violet: "#CFADE8",
         salmon: "#FFA89A",
-        lightviolet: "#F8C3EB",
+        // lightviolet: "#F8C3EB",
         // Accent colors for text hierarchies:
         liver: "#505050",
         eerie: "#1E1E1E",
         // Secondary white for base of the app:
         floralwhite: "#FFFAF0",
+
+        // pimp saturation up
+        lightviolet: "#ff94f1",
+        acid: "#DAFD3C",
+        yellow: "#ffef7e;",
+        cyan: "#71f2ff",
+        violet: "#d67fff",
       },
       data: {
         active: 'active="true"',
