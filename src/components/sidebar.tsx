@@ -14,7 +14,7 @@ export function Sidebar({
   return (
     <div
       className={cn(
-        "w-full space-y-8 overflow-auto border-r-2 border-black p-4",
+        "w-full space-y-8 overflow-auto border-black p-4 lg:border-r-2",
         className
       )}
     >
