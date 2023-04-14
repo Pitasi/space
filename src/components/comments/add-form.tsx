@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Button } from "../ui/button";
 
 export const Schema = z.object({
   content: z.string().nonempty(),
@@ -27,14 +28,14 @@ export function AddCommentForm(props: {
   return (
     <form className="flex flex-col gap-4" onSubmit={onSubmit}>
       <textarea
-        className="p-2 dark:text-slate-800"
+        className="rounded-none border-2 border-black p-2 shadow-neu-3 outline-0 ring-0 focus:border-violet focus:shadow-violet"
         rows={4}
-        placeholder="I want to hear from you! Write your thoughts :)"
+        placeholder="Write your thoughts here :)"
         {...register("content")}
       />
-      <button type="submit" disabled={formState.isLoading}>
+      <Button variant="default" type="submit" disabled={formState.isLoading}>
         {!formState.isSubmitting ? "Submit" : "Submitting..."}
-      </button>
+      </Button>
     </form>
   );
 }
