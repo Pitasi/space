@@ -8,9 +8,8 @@ export const metadata = {
 
 const getQuestions = cache(async () => await prisma.amaQuestion.findMany());
 
-export default LayoutWithList(getQuestions, (q) => ({
-  nav: {
-    href: `/ama/${q.id}`,
-    name: q.question,
-  },
+export default LayoutWithList("AMA", getQuestions, (q) => ({
+  href: `/ama/${q.id}`,
+  name: q.question,
+  children: q.question,
 }));

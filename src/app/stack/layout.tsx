@@ -8,9 +8,8 @@ export const metadata = {
 
 const getApps = cache(async () => await prisma.app.findMany());
 
-export default LayoutWithList(getApps, (app) => ({
-  nav: {
-    href: `/stack/${app.slug}`,
-    name: app.title,
-  },
+export default LayoutWithList("Stack", getApps, (app) => ({
+  href: `/stack/${app.slug}`,
+  name: app.title,
+  children: app.title,
 }));
