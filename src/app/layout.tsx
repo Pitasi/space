@@ -1,15 +1,8 @@
 import { SquircleShapeProvider } from "~/components/Squircle";
 import "../styles/globals.css";
-
 import { cn } from "~/utils/tw";
-import Icon from "~/fixtures/logo_icon.png";
 import { darkerGrotesque, inter } from "~/utils/fonts";
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarNav,
-  SidebarNavItem,
-} from "~/components/sidebar";
+import { RootSidebar } from "../components/root-sidebar";
 
 export const revalidate = 0;
 
@@ -34,19 +27,11 @@ export default function RootLayout({
         darkerGrotesque.variable
       )}
     >
-      <body className="h-screen overflow-hidden">
+      <body className="lg:h-screen lg:overflow-hidden">
         <SquircleShapeProvider />
 
         <div className="flex h-full flex-row bg-jasmine">
-          <Sidebar className="hidden w-48 shrink-0 bg-lightviolet lg:block">
-            <SidebarHeader title="Antonio Pitasi" imageSrc={Icon} />
-            <SidebarNav>
-              <SidebarNavItem />
-              <SidebarNavItem />
-              <SidebarNavItem />
-            </SidebarNav>
-          </Sidebar>
-
+          <RootSidebar />
           {children}
         </div>
       </body>

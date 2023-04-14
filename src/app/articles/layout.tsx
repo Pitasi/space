@@ -12,13 +12,11 @@ const getArticles = cache(async () => {
   return await prisma.article.findMany();
 });
 
-export default LayoutWithList(getArticles, (article: Article) => {
+export default LayoutWithList("Articles", getArticles, (article: Article) => {
   return {
-    nav: {
-      href: `/articles/${article.slug}`,
-      name: article.title,
-    },
-    comp: (
+    href: `/articles/${article.slug}`,
+    name: article.title,
+    children: (
       <div className="flex flex-col">
         <TwoLinesNavItem>
           {article.title}

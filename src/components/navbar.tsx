@@ -5,7 +5,7 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <nav
       className={cn(
-        "fixed bottom-0 left-0 z-10 flex h-12 w-full flex-row items-center justify-around border-t-2 border-black bg-acid",
+        "fixed bottom-0 left-0 z-10 flex h-12 w-full flex-row items-center justify-around border-t-2 border-black bg-acid lg:hidden",
         className
       )}
     >
@@ -15,4 +15,8 @@ export function Navbar({ className }: { className?: string }) {
       <Home size={25} />
     </nav>
   );
+}
+
+export function NavbarSpacer() {
+  return <div className="h-12 lg:hidden" />;
 }

@@ -1,8 +1,8 @@
-import { Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "~/utils/tw";
 import Image, { StaticImageData } from "next/image";
 import Icon from "~/fixtures/logo_icon.png";
+import Link from "next/link";
 
 export function Sidebar({
   children,
@@ -36,7 +36,7 @@ export function SidebarHeader(props: {
           )}
         >
           <Image
-            className="w-auto drop-shadow-neu-1"
+            className="drop-shadow-border w-auto"
             height={24}
             src={Icon}
             alt="Antonio Pitasi"
@@ -53,13 +53,28 @@ export function SidebarHeader(props: {
 }
 
 export function SidebarNav(props: { children: React.ReactNode }) {
-  return <div className="space-y-4">{props.children}</div>;
+  return <ul className="space-y-4">{props.children}</ul>;
 }
 
-export function SidebarNavItem() {
+export interface SidebarNavItemProps {
+  children: React.ReactNode;
+  href: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  className?: string;
+}
+
+export function SidebarNavItem(props: SidebarNavItemProps) {
   return (
-    <Button variant="link" className="w-full">
-      <Mail className="mr-2 h-4 w-4" /> click here yo
-    </Button>
+    <li>
+      <Link href={props.href}>
+        <Button
+          variant="link"
+          className={cn("flex w-full flex-row justify-center", props.className)}
+        >
+          {props.icon ? <props.icon className="mr-2 h-4 w-4" /> : null}
+          {props.children}
+        </Button>
+      </Link>
+    </li>
   );
 }

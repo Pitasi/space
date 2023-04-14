@@ -1,8 +1,17 @@
 import { cn } from "~/utils/tw";
 import { Button } from "./ui/button";
 import { ChevronLeft, Heart } from "lucide-react";
+import Link from "next/link";
 
-export function Header({ className }: { className?: string }) {
+export function Header({
+  title,
+  backHref,
+  className,
+}: {
+  title: string;
+  backHref: string;
+  className?: string;
+}) {
   return (
     <header
       className={cn(
@@ -10,10 +19,14 @@ export function Header({ className }: { className?: string }) {
         className
       )}
     >
-      <Button className="lg:hidden" variant="ghost" size="sm">
-        <ChevronLeft />
-      </Button>
-      <span className="font-bold lg:hidden">Title of the page</span>
+      <Link href={backHref}>
+        <Button className="lg:hidden" variant="ghost" size="sm">
+          <ChevronLeft />
+        </Button>
+      </Link>
+      <span className="font-bold lg:hidden">
+        {title.length > 20 ? title.slice(0, 20) + "..." : title}
+      </span>
       <Button variant="ghost" size="sm">
         <Hearts />
       </Button>
