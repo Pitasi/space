@@ -24,7 +24,11 @@ export default function LayoutWithList<ItemT>(
           <SidebarHeader title={title} />
           <SidebarNav>
             {items.map(itemToPath).map((item) => (
-              <SidebarNavItem key={item.href} {...item} />
+              <SidebarNavItem
+                className="data-active:border-2 data-active:border-black data-active:bg-yellow data-active:shadow-neu-2"
+                key={item.href}
+                {...item}
+              />
             ))}
           </SidebarNav>
         </Sidebar>

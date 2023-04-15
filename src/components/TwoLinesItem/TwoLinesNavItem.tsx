@@ -3,10 +3,8 @@ export function TwoLinesNavItem(props: {
 }) {
   return (
     <div className="flex flex-col">
-      <span>{props.children[0]}</span>
-      <span className="text-slate-400 dark:text-slate-500">
-        {props.children[1]}
-      </span>
+      <span className="font-semibold">{props.children[0]}</span>
+      <span className="opacity-60">{props.children[1]}</span>
     </div>
   );
 }

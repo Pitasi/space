@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { cn } from "~/utils/tw";
 import Image, { StaticImageData } from "next/image";
 import Icon from "~/fixtures/logo_icon.png";
-import Link from "next/link";
+import { NavLink } from "./nav-link";
 
 export function Sidebar({
   children,
@@ -52,8 +52,11 @@ export function SidebarHeader(props: {
   );
 }
 
-export function SidebarNav(props: { children: React.ReactNode }) {
-  return <ul className="space-y-4">{props.children}</ul>;
+export function SidebarNav(props: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <ul className={cn("space-y-4", props.className)}>{props.children}</ul>;
 }
 
 export interface SidebarNavItemProps {
@@ -66,15 +69,16 @@ export interface SidebarNavItemProps {
 export function SidebarNavItem(props: SidebarNavItemProps) {
   return (
     <li>
-      <Link href={props.href}>
-        <Button
-          variant="link"
-          className={cn("flex w-full flex-row justify-center", props.className)}
-        >
-          {props.icon ? <props.icon className="mr-2 h-4 w-4" /> : null}
-          {props.children}
-        </Button>
-      </Link>
+      <NavLink
+        href={props.href}
+        className={cn(
+          "flex h-auto w-full flex-row justify-center bg-inherit",
+          props.className
+        )}
+      >
+        {props.icon ? <props.icon className="mr-2 h-4 w-4" /> : null}
+        {props.children}
+      </NavLink>
     </li>
   );
 }

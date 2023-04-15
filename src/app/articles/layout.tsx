@@ -3,6 +3,7 @@ import { prisma } from "~/server/db";
 import LayoutWithList from "~/components/LayoutWithList";
 import { cache } from "react";
 import { TwoLinesNavItem } from "~/components/TwoLinesItem";
+import { formatDate } from "~/utils/dates";
 
 export const metadata = {
   title: "Articles",
@@ -17,14 +18,10 @@ export default LayoutWithList("Articles", getArticles, (article: Article) => {
     href: `/articles/${article.slug}`,
     name: article.title,
     children: (
-      <div className="flex flex-col">
-        <TwoLinesNavItem>
-          {article.title}
-          {article.createdAt.toLocaleDateString(new Intl.Locale("en-US"), {
-            dateStyle: "medium",
-          })}
-        </TwoLinesNavItem>
-      </div>
+      <TwoLinesNavItem>
+        {article.title}
+        {formatDate(article.createdAt)}
+      </TwoLinesNavItem>
     ),
   };
 });

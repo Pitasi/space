@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Link } from "./ui/button";
 
 export const useIsActive = (href: string) => {
   const path = usePathname();
