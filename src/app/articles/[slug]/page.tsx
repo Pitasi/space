@@ -21,6 +21,7 @@ export async function generateMetadata({
 export default WithGetter(getArticle, ({ data }) => {
   return (
     <Main>
+      {/* @ts-expect-error Server Component */}
       <Header title={data.title} backHref="/articles" />
       <Navbar />
 

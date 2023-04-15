@@ -2,8 +2,10 @@ import { cn } from "~/utils/tw";
 import { Button } from "./ui/button";
 import { ChevronLeft, Heart } from "lucide-react";
 import Link from "next/link";
+import { LoginGate } from "./login-gate";
+import { getSessionRSC } from "~/server/auth_rsc";
 
-export function Header({
+export async function Header({
   title,
   backHref,
   className,
@@ -12,6 +14,8 @@ export function Header({
   backHref: string;
   className?: string;
 }) {
+  const session = await getSessionRSC();
+
   return (
     <header
       className={cn(
@@ -27,9 +31,11 @@ export function Header({
       <span className="font-bold lg:hidden">
         {title.length > 20 ? title.slice(0, 20) + "..." : title}
       </span>
-      <Button variant="ghost" size="sm">
-        <Hearts />
-      </Button>
+      <LoginGate session={session}>
+        <Button variant="ghost" size="sm">
+          <Hearts />
+        </Button>
+      </LoginGate>
     </header>
   );
 }
