@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import getArticle from "~/app/queries/getArticle";
 import updateArticle from "~/app/mutations/updateArticle";
-import { Form } from "./form";
+import { Form } from "../../form";
 import { getSessionRSC } from "~/server/auth_rsc";
 
 export default async function EditArticlePage({
@@ -14,7 +14,7 @@ export default async function EditArticlePage({
     redirect("/api/auth/signin");
   }
 
-  const article = await getArticle(params);
+  const article = await getArticle({ slug: params.slug, onlyPublished: false });
   if (!article) {
     notFound();
   }
@@ -22,8 +22,10 @@ export default async function EditArticlePage({
   return (
     <div className="px-6 py-6">
       <Form
-        content={article.content}
         title={article.title}
+        content={article.content}
+        createdAt={article.createdAt}
+        published={article.published}
         onSubmit={async (data) => {
           "use server";
           const session = await getSessionRSC();
@@ -31,6 +33,7 @@ export default async function EditArticlePage({
             throw new Error("Unauthorized");
           }
           await updateArticle({ ...data, id: article.id });
+          return { redirect: `/articles/${article.slug}` };
         }}
       />
     </div>

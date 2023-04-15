@@ -2,9 +2,15 @@ import { cache } from "react";
 import { prisma } from "~/server/db";
 
 export default cache(
-  async ({ slug }: { slug: string }) =>
+  async ({
+    slug,
+    onlyPublished = true,
+  }: {
+    slug: string;
+    onlyPublished?: boolean;
+  }) =>
     await prisma.article.findFirst({
-      where: { slug },
+      where: { slug, published: onlyPublished ? true : undefined },
       include: {
         comment: {
           orderBy: { createdAt: "desc" },

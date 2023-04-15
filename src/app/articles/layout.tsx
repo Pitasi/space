@@ -10,7 +10,9 @@ export const metadata = {
 };
 
 const getArticles = cache(async () => {
-  return await prisma.article.findMany();
+  return await prisma.article.findMany({
+    where: { published: true },
+  });
 });
 
 export default LayoutWithList("Articles", getArticles, (article: Article) => {
