@@ -1,4 +1,3 @@
-import { Button } from "./ui/button";
 import { cn } from "~/utils/tw";
 import Image, { StaticImageData } from "next/image";
 import Icon from "~/fixtures/logo_icon.png";

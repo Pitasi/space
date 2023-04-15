@@ -47,7 +47,3 @@ export function Navbar({ className }: { className?: string }) {
     </nav>
   );
 }
-
-export function NavbarSpacer() {
-  return <div className="h-12 lg:hidden" />;
-}

@@ -1,4 +1,3 @@
-import { Navbar, NavbarSpacer } from "./navbar";
 import {
   Sidebar,
   SidebarHeader,
