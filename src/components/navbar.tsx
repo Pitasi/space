@@ -26,7 +26,7 @@ export function Navbar({ className }: { className?: string }) {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="bottom-0 top-auto border-0 p-0 lg:hidden">
+        <DialogContent className="bottom-0 top-auto border-0 p-0 sm:max-w-full lg:hidden">
           <Sidebar className="w-full border-t-2 border-black bg-lightviolet bg-pattern-hideout pb-20">
             <SidebarHeader title="Antonio Pitasi" imageSrc={Icon} />
             <SidebarNav className="text-black" onClick={() => setOpen(false)}>
