@@ -11,7 +11,7 @@ export async function Comments(props: {
   const session = await getSessionRSC();
   return (
     <section className="bg-floralwhite">
-      <div className="space-y-4 border-y-2 border-black bg-violet px-8 py-24">
+      <div className="space-y-4 border-y-2 border-black bg-violet bg-pattern-plus px-8 py-24">
         <h1 className="font-neu text-6xl font-bold">Comments section</h1>
         <LoginGate session={session}>
           <AddCommentDialog

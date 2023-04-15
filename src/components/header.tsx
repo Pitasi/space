@@ -19,7 +19,7 @@ export async function Header({
   return (
     <header
       className={cn(
-        "flex w-full items-center justify-between border-b-2 border-black bg-yellow py-4 px-4 lg:justify-end",
+        "flex w-full items-center justify-between border-b-2 border-black bg-yellow bg-pattern-wave py-4 px-4 lg:justify-end",
         className
       )}
     >

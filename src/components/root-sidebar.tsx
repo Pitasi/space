@@ -16,7 +16,7 @@ const navigation = [
 
 export function RootSidebar() {
   return (
-    <Sidebar className="hidden w-48 shrink-0 bg-lightviolet lg:block">
+    <Sidebar className="hidden w-48 shrink-0 bg-lightviolet bg-pattern-hideout lg:block">
       <SidebarHeader title="Antonio Pitasi" imageSrc={Icon} />
       <SidebarNav className="text-black">
         {navigation.map((item) => (
