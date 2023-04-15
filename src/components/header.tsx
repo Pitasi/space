@@ -1,11 +1,11 @@
 import { cn } from "~/utils/tw";
 import { Button } from "./ui/button";
-import { ChevronLeft, Heart } from "lucide-react";
+import { ChevronLeft /*, Heart*/ } from "lucide-react";
 import Link from "next/link";
-import { LoginGate } from "./login-gate";
-import { getSessionRSC } from "~/server/auth_rsc";
+// import { LoginGate } from "./login-gate";
+// import { getSessionRSC } from "~/server/auth_rsc";
 
-export async function Header({
+export function Header({
   title,
   backHref,
   className,
@@ -14,7 +14,7 @@ export async function Header({
   backHref: string;
   className?: string;
 }) {
-  const session = await getSessionRSC();
+  // const session = await getSessionRSC();
 
   return (
     <header
@@ -31,20 +31,23 @@ export async function Header({
       <span className="font-bold lg:hidden">
         {title.length > 20 ? title.slice(0, 20) + "..." : title}
       </span>
+      {/* Will launch "hearts" in near future
       <LoginGate session={session}>
         <Button variant="ghost" size="sm">
           <Hearts />
         </Button>
       </LoginGate>
+      */}
+      <div />
     </header>
   );
 }
 
-function Hearts() {
-  return (
-    <div className="flex flex-row items-center justify-center gap-2 font-neu text-3xl font-bold">
-      <Heart fill="red" color="black" className="drop-shadow-neu-2" />
-      <span>42</span>
-    </div>
-  );
-}
+// function Hearts() {
+//   return (
+//     <div className="flex flex-row items-center justify-center gap-2 font-neu text-3xl font-bold">
+//       <Heart fill="red" color="black" className="drop-shadow-neu-2" />
+//       <span>42</span>
+//     </div>
+//   );
+// }

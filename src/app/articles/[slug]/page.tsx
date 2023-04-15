@@ -2,11 +2,11 @@ import getArticle from "~/app/queries/getArticle";
 
 import { WithGetter } from "~/components/WithGetter";
 import { Content } from "~/components/content";
-import { Comments } from "~/components/comments/comments";
+// import { Comments } from "~/components/comments/comments";
 import { Header } from "~/components/header";
 import { Navbar, NavbarSpacer } from "~/components/navbar";
 import { Main } from "~/components/main";
-import { CommentCard } from "~/components/comments/comment-card";
+// import { CommentCard } from "~/components/comments/comment-card";
 import { MDX } from "~/components/mdx";
 
 export async function generateMetadata({
@@ -21,15 +21,14 @@ export async function generateMetadata({
 export default WithGetter(getArticle, ({ data }) => {
   return (
     <Main>
-      {/* @ts-expect-error Server Component */}
       <Header title={data.title} backHref="/articles" />
-      <Navbar />
 
       <Content title={data.title}>
         <MDX content={data.content} />
       </Content>
 
-      {/* @ts-expect-error Server Component */}
+      {/* Will launch comments in near future
+      @ts-expect-error Server Component
       <Comments id={data.id} kind="article">
         <ul>
           {data.comment.map((c) => (
@@ -37,8 +36,7 @@ export default WithGetter(getArticle, ({ data }) => {
           ))}
         </ul>
       </Comments>
-
-      <NavbarSpacer />
+      */}
     </Main>
   );
 });

@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { cn } from "~/utils/tw";
 import { darkerGrotesque, inter } from "~/utils/fonts";
 import { RootSidebar } from "../components/root-sidebar";
+import { Navbar } from "~/components/navbar";
 
 export const revalidate = 0;
 
@@ -22,15 +23,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "h-screen bg-beige-200 dark:bg-midnight-700 dark:text-neutral",
+        "bg-beige-200 dark:bg-midnight-700 dark:text-neutral lg:h-screen",
         inter.variable,
         darkerGrotesque.variable
       )}
     >
-      <body className="lg:h-screen lg:overflow-hidden">
+      <body className="flex flex-1 lg:h-screen lg:overflow-hidden">
         <SquircleShapeProvider />
 
-        <div className="flex h-full flex-row bg-jasmine">
+        <div className="flex h-full flex-1 flex-row bg-jasmine">
+          <Navbar />
           <RootSidebar />
           {children}
         </div>

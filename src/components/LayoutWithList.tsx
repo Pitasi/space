@@ -1,3 +1,4 @@
+import { Navbar, NavbarSpacer } from "./navbar";
 import {
   Sidebar,
   SidebarHeader,
@@ -20,7 +21,7 @@ export default function LayoutWithList<ItemT>(
 
     return (
       <div className="relative flex h-full w-full flex-row">
-        <Sidebar className="w-full shrink-0 bg-acid bg-pattern-hideout lg:block lg:w-48">
+        <Sidebar className="min-h-full w-full shrink-0 bg-acid bg-pattern-hideout lg:block lg:w-48">
           <SidebarHeader title={title} />
           <SidebarNav>
             {items.map(itemToPath).map((item) => (

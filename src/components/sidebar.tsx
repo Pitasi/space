@@ -55,8 +55,13 @@ export function SidebarHeader(props: {
 export function SidebarNav(props: {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }) {
-  return <ul className={cn("space-y-4", props.className)}>{props.children}</ul>;
+  return (
+    <ul onClick={props.onClick} className={cn("space-y-4", props.className)}>
+      {props.children}
+    </ul>
+  );
 }
 
 export interface SidebarNavItemProps {

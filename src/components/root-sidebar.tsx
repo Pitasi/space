@@ -7,7 +7,7 @@ import {
 } from "~/components/sidebar";
 import Icon from "~/fixtures/logo_icon.png";
 
-const navigation = [
+export const navigation = [
   { name: "Home", href: "/", icon: Home },
   { name: "Articles", href: "/articles", icon: PenTool },
   // { name: "AMA", href: "/ama", icon: MessageCircle },
