@@ -1,7 +1,12 @@
 import { User } from "@prisma/client";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { formatDateRelative } from "~/utils/dates";
 
-export function CommentCard(props: { author: User }) {
+export function CommentCard(props: {
+  content: string;
+  author: User;
+  createdAt: Date;
+}) {
   const displayName = props.author.name || props.author.email || "anonymous";
 
   return (
@@ -14,13 +19,12 @@ export function CommentCard(props: { author: User }) {
       <div className="flex flex-row justify-start gap-2">
         <span className="font-semibold text-black">{displayName}</span>
         <p className="leading-snug">·</p>
-        <span className="text-liver">2 hours ago</span>
+        <span className="text-liver">
+          {formatDateRelative(props.createdAt)}
+        </span>
       </div>
 
-      <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptates, quod, quia, voluptatibus quae
-      </span>
+      <span>{props.content}</span>
     </div>
   );
 }

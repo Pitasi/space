@@ -7,6 +7,7 @@ export default cache(
       where: { slug },
       include: {
         comment: {
+          orderBy: { createdAt: "desc" },
           include: {
             author: true,
           },

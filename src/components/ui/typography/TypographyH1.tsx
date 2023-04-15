@@ -1,8 +1,7 @@
 import { classed } from "@tw-classed/react";
 import classes from "./TypographyH1.module.css";
 
-export const TypographyH1 = classed(
-  "h1",
+export const TypographyH1 = classed.h1(
   "scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-8xl text-eerie",
   {
     variants: {
