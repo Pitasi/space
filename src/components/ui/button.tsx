@@ -44,7 +44,7 @@ const _Link = classed(
         outline:
           "bg-transparent border border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100",
         subtle:
-          "bg-salmon text-black hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100",
+          "bg-floralwhite text-black hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100",
         active: "bg-seafoam font-bold border border-black shadow-neu-1",
         ghost:
           "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
@@ -54,6 +54,7 @@ const _Link = classed(
         default: "h-10 py-2 px-4",
         sm: "h-9 px-2 rounded-md",
         lg: "h-11 px-8 rounded-md",
+        square: "h-10 w-10",
       },
     },
     defaultVariants: {

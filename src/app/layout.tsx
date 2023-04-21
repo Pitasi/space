@@ -4,6 +4,7 @@ import { cn } from "~/utils/tw";
 import { darkerGrotesque, inter } from "~/utils/fonts";
 import { RootSidebar } from "../components/root-sidebar";
 import { Navbar } from "~/components/navbar";
+import { SessionProviderRSC } from "~/components/session-provider";
 
 export const revalidate = 0;
 
@@ -32,7 +33,10 @@ export default function RootLayout({
         <SquircleShapeProvider />
 
         <div className="flex h-full flex-1 flex-row bg-white">
-          <Navbar />
+          {/* @ts-expect-error Server Component */}
+          <SessionProviderRSC>
+            <Navbar />
+          </SessionProviderRSC>
           <RootSidebar />
           {children}
         </div>
