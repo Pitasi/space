@@ -4,9 +4,9 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env.mjs"));
 const output = process.env.OUTPUT;
-if (output !== "standalone" && output !== "export") {
+if (output !== "standalone" && output !== "export" && output !== undefined) {
   throw new Error(
-    "invalid OUTPUT env variable value: can be 'standalone' or 'export'"
+    "invalid OUTPUT env variable value: can be 'standalone' or 'export', or leave empty"
   );
 }
 
