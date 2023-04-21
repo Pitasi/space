@@ -22,10 +22,13 @@ export default async function EditArticlePage({
   return (
     <div className="px-6 py-6">
       <Form
-        title={article.title}
-        content={article.content}
-        createdAt={article.createdAt}
-        published={article.published}
+        article={{
+          title: article.title,
+          content: article.content,
+          createdAt: article.createdAt,
+          published: article.published,
+          slug: article.slug,
+        }}
         onSubmit={async (data) => {
           "use server";
           const session = await getSessionRSC();

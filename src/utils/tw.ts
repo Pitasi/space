@@ -4,7 +4,7 @@ import { createClassed } from "@tw-classed/react";
 
 const twMerge = extendTailwindMerge({
   classGroups: {
-    "bg-image": ["bg-pattern-hideout", "bg-pattern-plus", "bg-pattern-wave"],
+    "bg-image": ["bg-pattern-hideout", "bg-pattern-plus"],
   },
 });
 

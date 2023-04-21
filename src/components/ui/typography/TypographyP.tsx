@@ -1,5 +1,3 @@
-export function TypographyP(props: { children: React.ReactNode }) {
-  return (
-    <p className="leading-7 [&:not(:first-child)]:mt-6">{props.children}</p>
-  );
-}
+import { classed } from "~/utils/tw";
+
+export const TypographyP = classed.p("leading-7 [&:not(:first-child)]:mt-6");

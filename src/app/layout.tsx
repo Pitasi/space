@@ -23,15 +23,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "bg-beige-200 dark:bg-midnight-700 dark:text-neutral lg:h-screen",
+        "h-full bg-beige-200 dark:bg-midnight-700 dark:text-neutral lg:h-screen",
         inter.variable,
         darkerGrotesque.variable
       )}
     >
-      <body className="flex flex-1 lg:h-screen lg:overflow-hidden">
+      <body className="flex h-full flex-1 lg:h-screen lg:overflow-hidden">
         <SquircleShapeProvider />
 
-        <div className="flex h-full flex-1 flex-row bg-jasmine">
+        <div className="flex h-full flex-1 flex-row bg-white">
           <Navbar />
           <RootSidebar />
           {children}

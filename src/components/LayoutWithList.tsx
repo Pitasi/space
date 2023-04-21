@@ -20,7 +20,7 @@ export default function LayoutWithList<ItemT>(
 
     return (
       <div className="relative flex h-full w-full flex-row">
-        <Sidebar className="min-h-full w-full shrink-0 bg-acid bg-pattern-hideout lg:block lg:w-48">
+        <Sidebar className="min-h-full w-full shrink-0 bg-acid bg-pattern-hideout lg:block lg:w-80">
           <SidebarHeader title={title} />
           <SidebarNav>
             {items.map(itemToPath).map((item) => (
@@ -33,7 +33,7 @@ export default function LayoutWithList<ItemT>(
           </SidebarNav>
         </Sidebar>
 
-        <div className="absolute inset-0 h-full w-full empty:hidden lg:static lg:overflow-y-auto">
+        <div className="absolute inset-0 h-full w-full bg-white empty:hidden lg:static lg:overflow-y-auto">
           {props.children}
         </div>
       </div>

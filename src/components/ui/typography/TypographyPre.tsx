@@ -1,10 +1,3 @@
-// pre: {
-//   color: 'var(--tw-prose-pre-code)',
-//   backgroundColor: 'var(--tw-prose-pre-bg)',
-//   overflowX: 'auto',
-//   fontWeight: '400',
-// },
-
 import { classed } from "~/utils/tw";
 
 export const TypographyPre = classed(

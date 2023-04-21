@@ -1,14 +1,17 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import {
+  TypographyA,
   TypographyBlockquote,
   TypographyH1,
   TypographyH2,
   TypographyH3,
   TypographyH4,
+  TypographyHr,
   TypographyInlineCode,
   TypographyLarge,
   TypographyLead,
+  TypographyList,
   TypographyP,
   TypographyPre,
   TypographySmall,
@@ -16,6 +19,7 @@ import {
 } from "~/components/ui/typography";
 
 const components = {
+  a: TypographyA,
   blockquote: TypographyBlockquote,
   h1: TypographyH1,
   h2: TypographyH2,
@@ -23,8 +27,10 @@ const components = {
   h4: TypographyH4,
   p: TypographyP,
   small: TypographySmall,
+  ul: TypographyList,
   pre: TypographyPre,
   code: TypographyInlineCode,
+  hr: TypographyHr,
 
   Large: TypographyLarge,
   Lead: TypographyLead,

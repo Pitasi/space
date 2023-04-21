@@ -1,7 +1,5 @@
-export function TypographyH3() {
-  return (
-    <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-      The Joke Tax
-    </h3>
-  )
-}
+import { classed } from "~/utils/tw";
+
+export const TypographyH3 = classed.h3(
+  "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight"
+);

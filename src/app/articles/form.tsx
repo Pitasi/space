@@ -22,12 +22,14 @@ type OnSubmitData = Omit<SchemaType, "createdAt"> & {
 type OnSubmitResult = { redirect?: string };
 
 export function Form(props: {
-  title?: string;
-  slug?: string;
-  content?: string;
-  createdAt?: Date;
-  published?: boolean;
   onSubmit: (data: OnSubmitData) => Promise<OnSubmitResult>;
+  article?: {
+    title: string;
+    slug: string;
+    content: string;
+    createdAt: Date;
+    published: boolean;
+  };
 }) {
   const router = useRouter();
   const {
@@ -50,22 +52,22 @@ export function Form(props: {
   return (
     <form className="flex flex-col gap-4" onSubmit={onSubmit}>
       <input
-        className="p-2 dark:text-slate-800"
+        className="border border-black p-2 dark:text-slate-800"
         placeholder="the-slug"
-        {...register("slug", { value: props.slug })}
+        {...register("slug", { value: props.article?.slug })}
       />
       <input
-        className="p-2 dark:text-slate-800"
+        className="border border-black p-2 dark:text-slate-800"
         placeholder="The Title"
-        {...register("title", { value: props.title })}
+        {...register("title", { value: props.article?.title })}
       />
       {errors.createdAt && <div>{errors.createdAt.message}</div>}
       <input
         type="datetime-local"
-        className="p-2 dark:text-slate-800"
+        className="border border-black p-2 dark:text-slate-800"
         placeholder="2021-01-01T00:12Z"
         {...register("createdAt", {
-          value: props.createdAt,
+          value: props.article?.createdAt,
           valueAsDate: true,
         })}
       />
@@ -73,14 +75,14 @@ export function Form(props: {
         <label>Published</label>
         <input
           type="checkbox"
-          className="p-2 dark:text-slate-800"
-          {...register("published", { value: props.published })}
+          className="border border-black p-2 dark:text-slate-800"
+          {...register("published", { value: props.article?.published })}
         />
       </div>
       <textarea
-        className="p-2 dark:text-slate-800"
+        className="border border-black p-2 dark:text-slate-800"
         rows={10}
-        {...register("content", { value: props.content })}
+        {...register("content", { value: props.article?.content })}
       />
       <button type="submit">Submit</button>
     </form>
