@@ -3,13 +3,19 @@
  * This is especially useful for Docker builds.
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env.mjs"));
+const output = process.env.OUTPUT;
+if (output !== "standalone" && output !== "export") {
+  throw new Error(
+    "invalid OUTPUT env variable value: can be 'standalone' or 'export'"
+  );
+}
 
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
 
   // Uncomment this if deploying to Docker
-  // output: "standalone",
+  output,
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
