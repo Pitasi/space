@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { EditorTextarea } from "~/components/editor";
 
 export const Schema = z.object({
   title: z.string().nonempty(),
@@ -79,7 +80,7 @@ export function Form(props: {
           {...register("published", { value: props.article?.published })}
         />
       </div>
-      <textarea
+      <EditorTextarea
         className="border border-black p-2 dark:text-slate-800"
         rows={10}
         {...register("content", { value: props.article?.content })}

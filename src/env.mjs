@@ -23,6 +23,10 @@ const server = z.object({
   GOOGLE_CLIENT_SECRET: z.string(),
   GITHUB_CLIENT_ID: z.string(),
   GITHUB_CLIENT_SECRET: z.string(),
+  CF_ACCOUNT_ID: z.string(),
+  CF_ACCESS_KEY_ID: z.string(),
+  CF_SECRET_ACCESS_KEY: z.string(),
+  CF_BUCKET: z.string(),
 });
 
 /**
@@ -48,6 +52,10 @@ const processEnv = {
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+  CF_ACCOUNT_ID: process.env.CF_ACCOUNT_ID,
+  CF_ACCESS_KEY_ID: process.env.CF_ACCESS_KEY_ID,
+  CF_SECRET_ACCESS_KEY: process.env.CF_SECRET_ACCESS_KEY,
+  CF_BUCKET: process.env.CF_BUCKET,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
