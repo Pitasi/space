@@ -54,7 +54,7 @@ function _EditorTextarea(
       .flatMap((item) => item.getAsFile() || [])
       .filter(isImage);
     const textarea = e.currentTarget;
-    if (!isUploading) {
+    if (!isUploading && imageFiles.length > 0) {
       e.preventDefault();
       isUploading = true;
 
