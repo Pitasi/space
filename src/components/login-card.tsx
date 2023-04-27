@@ -3,7 +3,7 @@
 import { Avatar } from "./avatar";
 import { User } from "next-auth";
 import { Link } from "./ui/button";
-import { Settings } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 export function LoginCard() {
@@ -46,7 +46,7 @@ function LogoutCard(props: { user: User }) {
         variant="subtle"
         size="square"
       >
-        <Settings />
+        <LogOut />
       </Link>
     </div>
   );
