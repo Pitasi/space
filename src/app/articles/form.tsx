@@ -10,7 +10,7 @@ export const Schema = z.object({
   title: z.string().nonempty(),
   slug: z.string().nonempty(),
   content: z.string().nonempty(),
-  createdAt: z.date(),
+  createdAt: z.string().nonempty(),
   published: z.boolean(),
 });
 
@@ -43,7 +43,7 @@ export function Form(props: {
   const onSubmit = handleSubmit(async (d) => {
     const { redirect } = await props.onSubmit({
       ...d,
-      createdAt: d.createdAt.toISOString(),
+      createdAt: d.createdAt,
     });
     if (redirect) {
       router.push(redirect);
@@ -64,12 +64,11 @@ export function Form(props: {
       />
       {errors.createdAt && <div>{errors.createdAt.message}</div>}
       <input
-        type="datetime-local"
+        type="text"
         className="border border-black p-2 dark:text-slate-800"
-        placeholder="2021-01-01T00:12Z"
         {...register("createdAt", {
-          value: props.article?.createdAt,
-          valueAsDate: true,
+          value: (props.article?.createdAt || new Date()).toISOString(),
+          setValueAs: (value: string) => new Date(value),
         })}
       />
       <div>
