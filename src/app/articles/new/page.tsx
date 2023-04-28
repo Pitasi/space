@@ -15,7 +15,6 @@ export default async function NewArticlePage() {
         onSubmit={async (data) => {
           "use server";
           const session = await getSessionRSC();
-          console.log(session);
           if (!session?.user.admin) {
             throw new Error("Unauthorized");
           }
