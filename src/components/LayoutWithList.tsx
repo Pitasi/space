@@ -19,8 +19,8 @@ export default function LayoutWithList<ItemT>(
     const items = await getter();
 
     return (
-      <div className="relative flex h-full w-full flex-row">
-        <Sidebar className="shrink-0 bg-acid bg-pattern-hideout lg:block lg:w-80">
+      <div className="relative h-full w-full flex-row lg:grid lg:grid-cols-[20rem_minmax(0,1fr)]">
+        <Sidebar className="shrink-0 bg-acid bg-pattern-hideout lg:block">
           <SidebarHeader title={title} />
           <SidebarNav>
             {items.map(itemToPath).map((item) => (
@@ -33,7 +33,7 @@ export default function LayoutWithList<ItemT>(
           </SidebarNav>
         </Sidebar>
 
-        <div className="absolute inset-0 h-full w-full bg-white empty:hidden lg:static">
+        <div className="absolute inset-0 bg-white empty:hidden lg:static">
           {props.children}
         </div>
       </div>

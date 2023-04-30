@@ -31,7 +31,7 @@ export default function RootLayout({
         darkerGrotesque.variable
       )}
     >
-      <body className="flex flex-1">
+      <body className="flex">
         {/** @ts-expect-error Server component */}
         <SessionProviderRSC>
           <SquircleShapeProvider />
