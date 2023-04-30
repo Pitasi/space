@@ -6,7 +6,7 @@ import { Content } from "~/components/content";
 import { Header } from "~/components/header";
 import { Main } from "~/components/main";
 // import { CommentCard } from "~/components/comments/comment-card";
-import { MDX } from "~/components/mdx";
+import { MDX } from "~/components/mdx/mdx";
 
 export async function generateMetadata({
   params,

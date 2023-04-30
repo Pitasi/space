@@ -17,6 +17,7 @@ import {
   TypographySmall,
   TypographySubtle,
 } from "~/components/ui/typography";
+import { WithCodeHighlight } from "./code-highlight";
 
 const components = {
   a: TypographyA,
@@ -29,7 +30,7 @@ const components = {
   small: TypographySmall,
   ul: TypographyList,
   pre: TypographyPre,
-  code: TypographyInlineCode,
+  code: WithCodeHighlight(TypographyInlineCode),
   hr: TypographyHr,
 
   Large: TypographyLarge,
