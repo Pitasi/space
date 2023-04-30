@@ -25,7 +25,7 @@ export default function LayoutWithList<ItemT>(
           <SidebarNav>
             {items.map(itemToPath).map((item) => (
               <SidebarNavItem
-                className="data-active:border-2 data-active:border-black data-active:bg-yellow data-active:shadow-neu-2"
+                className="ring-inset ring-lightviolet ring-offset-transparent focus:ring-1 data-active:-translate-x-0.5 data-active:-translate-y-0.5 data-active:border-2 data-active:border-black data-active:bg-yellow data-active:shadow-neu-2 data-active:hover:translate-x-0 data-active:hover:translate-y-0 data-active:hover:shadow-none"
                 key={item.href}
                 {...item}
               />
