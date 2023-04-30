@@ -30,16 +30,15 @@ export default function RootLayout({
       )}
     >
       <body className="flex h-full flex-1 lg:h-screen lg:overflow-hidden">
-        <SquircleShapeProvider />
-
-        <div className="flex h-full flex-1 flex-row bg-white">
-          {/* @ts-expect-error Server Component */}
-          <SessionProviderRSC>
+        {/** @ts-expect-error Server component */}
+        <SessionProviderRSC>
+          <SquircleShapeProvider />
+          <div className="flex h-full flex-1 flex-row bg-white">
             <Navbar />
-          </SessionProviderRSC>
-          <RootSidebar />
-          {children}
-        </div>
+            <RootSidebar />
+            {children}
+          </div>
+        </SessionProviderRSC>
       </body>
     </html>
   );
