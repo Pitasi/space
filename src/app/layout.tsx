@@ -6,6 +6,8 @@ import { RootSidebar } from "../components/root-sidebar";
 import { Navbar } from "~/components/navbar";
 import { SessionProviderRSC } from "~/components/session-provider";
 
+import "highlight.js/styles/github.css";
+
 export const revalidate = 0;
 
 export const metadata = {

@@ -17,7 +17,7 @@ import {
   TypographySmall,
   TypographySubtle,
 } from "~/components/ui/typography";
-import { WithCodeHighlight } from "./code-highlight";
+import rehypeHighlight from "rehype-highlight";
 
 const components = {
   a: TypographyA,
@@ -30,7 +30,7 @@ const components = {
   small: TypographySmall,
   ul: TypographyList,
   pre: TypographyPre,
-  code: WithCodeHighlight(TypographyInlineCode),
+  code: TypographyInlineCode,
   hr: TypographyHr,
 
   Large: TypographyLarge,
@@ -46,6 +46,7 @@ export function MDX(props: { content: string }) {
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
+            rehypePlugins: [rehypeHighlight],
           },
         }}
         source={props.content}
