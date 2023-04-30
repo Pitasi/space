@@ -26,16 +26,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "h-full bg-beige-200 dark:bg-midnight-700 dark:text-neutral lg:h-screen",
+        "bg-beige-200 dark:bg-midnight-700 dark:text-neutral",
         inter.variable,
         darkerGrotesque.variable
       )}
     >
-      <body className="flex h-full flex-1 lg:h-screen lg:overflow-hidden">
+      <body className="flex flex-1">
         {/** @ts-expect-error Server component */}
         <SessionProviderRSC>
           <SquircleShapeProvider />
-          <div className="flex h-full flex-1 flex-row bg-white">
+          <div className="flex flex-1 flex-row bg-white">
             <Navbar />
             <RootSidebar />
             {children}

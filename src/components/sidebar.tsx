@@ -13,7 +13,7 @@ export function Sidebar({
   return (
     <div
       className={cn(
-        "w-full space-y-8 overflow-auto border-black p-4 lg:border-r-2",
+        "sticky bottom-0 top-0 max-h-screen w-full space-y-8 overflow-auto border-black p-4 lg:border-r-2",
         className
       )}
     >
