@@ -35,7 +35,11 @@ export default async function EditArticlePage({
           if (!session?.user.admin) {
             throw new Error("Unauthorized");
           }
-          await updateArticle({ ...data, id: article.id });
+          await updateArticle({
+            ...data,
+            createdAt: new Date(data.createdAt),
+            id: article.id,
+          });
           return { redirect: `/articles/${article.slug}` };
         }}
       />

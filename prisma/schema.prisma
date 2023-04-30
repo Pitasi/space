@@ -26,6 +26,8 @@ model Article {
     authorId   String
     articleTag ArticleTag[]
     comment    Comment[]
+
+    @@unique([slug])
 }
 
 model ArticleTag {

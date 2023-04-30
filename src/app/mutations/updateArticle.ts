@@ -5,12 +5,16 @@ const schema = z.object({
   id: z.string(),
   title: z.string(),
   content: z.string(),
+  published: z.boolean(),
+  createdAt: z.date(),
 });
 
 export default async (params: z.infer<typeof schema>) => {
-  const { id, title, content } = await schema.parseAsync(params);
+  const { id, title, content, published, createdAt } = await schema.parseAsync(
+    params
+  );
   await prisma.article.update({
     where: { id: id },
-    data: { title: title, content: content },
+    data: { title, content, published, createdAt },
   });
 };
