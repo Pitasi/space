@@ -51,7 +51,6 @@ export function Navbar({ className }: { className?: string }) {
               </SidebarNav>
             </div>
 
-            {/** @ts-expect-error Server Component */}
             <LoginCard />
           </Sidebar>
         </DialogContent>

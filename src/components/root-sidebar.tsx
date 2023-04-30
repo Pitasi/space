@@ -34,7 +34,6 @@ export function RootSidebar() {
         </SidebarNav>
       </div>
 
-      {/** @ts-expect-error Server Component */}
       <LoginCard />
     </Sidebar>
   );
