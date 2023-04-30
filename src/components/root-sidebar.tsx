@@ -7,7 +7,6 @@ import {
 } from "~/components/sidebar";
 import Icon from "~/fixtures/logo_icon.png";
 import { LoginCard } from "./login-card";
-import { SessionProviderRSC } from "~/components/session-provider";
 
 export const navigation = [
   { name: "Home", href: "/", icon: Home },
@@ -35,10 +34,8 @@ export function RootSidebar() {
         </SidebarNav>
       </div>
 
-      {/* @ts-expect-error Server Component */}
-      <SessionProviderRSC>
-        <LoginCard />
-      </SessionProviderRSC>
+      {/** @ts-expect-error Server Component */}
+      <LoginCard />
     </Sidebar>
   );
 }
