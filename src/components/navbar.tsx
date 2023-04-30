@@ -1,14 +1,20 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { Home, Menu, PenTool } from "lucide-react";
 import { cn } from "~/utils/tw";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Sidebar, SidebarHeader, SidebarNav, SidebarNavItem } from "./sidebar";
-import { navigation } from "./root-sidebar";
 import Icon from "~/fixtures/logo_icon.png";
 import { useState } from "react";
 import { LoginCard } from "./login-card";
+
+const navigation = [
+  { name: "Home", href: "/", icon: Home },
+  { name: "Articles", href: "/articles", icon: PenTool },
+  // { name: "AMA", href: "/ama", icon: MessageCircle },
+  // { name: "Stack", href: "/stack", icon: LayoutGrid },
+];
 
 export function Navbar({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);

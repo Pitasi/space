@@ -8,7 +8,7 @@ import {
 import Icon from "~/fixtures/logo_icon.png";
 import { LoginCard } from "./login-card";
 
-export const navigation = [
+const navigation = [
   { name: "Home", href: "/", icon: Home },
   { name: "Articles", href: "/articles", icon: PenTool },
   // { name: "AMA", href: "/ama", icon: MessageCircle },
