@@ -47,7 +47,7 @@ const replaceImagePlaceholder = async (
   const s = await size(file);
   textarea.value = textarea.value.replace(
     placeholder,
-    `<Image src="${path}" height={${s.height}} width={${s.width}} />`
+    `<Image alt="image" src="${path}" height={${s.height}} width={${s.width}} />`
   );
 };
 
