@@ -1,4 +1,4 @@
-import { TypographyA } from "./TypographyA";
+import { TypographyA, TypographyLink } from "./TypographyA";
 import { TypographyBlockquote } from "./TypographyBlockquote";
 import { TypographyH1 } from "./TypographyH1";
 import { TypographyH2 } from "./TypographyH2";
@@ -16,6 +16,7 @@ import { TypographySubtle } from "./TypographySubtle";
 
 export {
   TypographyA,
+  TypographyLink,
   TypographyBlockquote,
   TypographyH1,
   TypographyH2,

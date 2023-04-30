@@ -11,6 +11,7 @@ import {
   TypographyInlineCode,
   TypographyLarge,
   TypographyLead,
+  TypographyLink,
   TypographyList,
   TypographyP,
   TypographyPre,
@@ -18,9 +19,10 @@ import {
   TypographySubtle,
 } from "~/components/ui/typography";
 import rehypeHighlight from "rehype-highlight";
+import { EscapeAnchor } from "./link";
 
 const components = {
-  a: TypographyA,
+  a: EscapeAnchor(TypographyA, TypographyLink),
   blockquote: TypographyBlockquote,
   h1: TypographyH1,
   h2: TypographyH2,
