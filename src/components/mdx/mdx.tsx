@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import {
@@ -38,6 +39,7 @@ const components = {
   Large: TypographyLarge,
   Lead: TypographyLead,
   Subtle: TypographySubtle,
+  Image: Image,
 } as MDXRemoteProps["components"];
 
 export function MDX(props: { content: string }) {

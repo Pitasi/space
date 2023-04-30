@@ -5,6 +5,13 @@ const placeholder = "![Uploading image...]()";
 
 const isImage = (file: File): boolean => file.type.startsWith("image/");
 
+const size = async (file: File) => {
+  const bmp = await createImageBitmap(file);
+  const { width, height } = bmp;
+  bmp.close();
+  return { width, height };
+};
+
 const upload = async (file: File): Promise<UploadResponse> => {
   const formdata = new FormData();
   formdata.append("file", file);
@@ -32,11 +39,16 @@ const insertImagePlaceholder = (textarea: HTMLTextAreaElement) => {
   textarea.selectionEnd = textarea.selectionStart;
 };
 
-const replaceImagePlaceholder = (
+const replaceImagePlaceholder = async (
   textarea: HTMLTextAreaElement,
+  file: File,
   path: string
 ) => {
-  textarea.value = textarea.value.replace(placeholder, `![image](${path})`);
+  const s = await size(file);
+  textarea.value = textarea.value.replace(
+    placeholder,
+    `<Image src="${path}" height={${s.height}} width={${s.width}} />`
+  );
 };
 
 type EditorTextareaProps = JSX.IntrinsicAttributes &
@@ -61,7 +73,7 @@ function _EditorTextarea(
       for (const file of imageFiles) {
         insertImagePlaceholder(textarea);
         const { path } = await upload(file);
-        replaceImagePlaceholder(textarea, path);
+        await replaceImagePlaceholder(textarea, file, path);
       }
 
       isUploading = false;
