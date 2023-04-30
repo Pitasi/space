@@ -1,23 +1,17 @@
-"use client";
+"use server";
 
 import { Avatar } from "./avatar";
 import { User } from "next-auth";
 import { Link } from "./ui/button";
 import { LogOut } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { getSessionRSC } from "~/server/auth_rsc";
 
-export function LoginCard() {
-  const { data: session, status } = useSession();
+export async function LoginCard() {
+  const session = await getSessionRSC();
 
   return (
     <div className="w-full">
-      {status === "loading" ? (
-        "..."
-      ) : session ? (
-        <LogoutCard user={session.user} />
-      ) : (
-        <LoginButton />
-      )}
+      {session ? <LogoutCard user={session.user} /> : <LoginButton />}
     </div>
   );
 }
