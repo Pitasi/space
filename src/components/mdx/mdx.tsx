@@ -19,7 +19,7 @@ import {
   TypographySmall,
   TypographySubtle,
 } from "~/components/ui/typography";
-import rehypeHighlight from "rehype-highlight";
+import rehypeHighlight, { Options as HighlightOptions } from "rehype-highlight";
 import { EscapeAnchor } from "./link";
 
 const components = {
@@ -50,7 +50,14 @@ export function MDX(props: { content: string }) {
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
-            rehypePlugins: [rehypeHighlight],
+            rehypePlugins: [
+              [
+                rehypeHighlight,
+                {
+                  ignoreMissing: true,
+                } as HighlightOptions,
+              ],
+            ],
           },
         }}
         source={props.content}
