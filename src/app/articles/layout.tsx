@@ -12,6 +12,7 @@ export const metadata = {
 const getArticles = cache(async () => {
   return await prisma.article.findMany({
     where: { published: true },
+    orderBy: { createdAt: "desc" },
   });
 });
 
