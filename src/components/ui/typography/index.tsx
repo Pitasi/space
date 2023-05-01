@@ -8,7 +8,7 @@ import { TypographyHr } from "./TypographyHr";
 import { TypographyInlineCode } from "./TypographyInlineCode";
 import { TypographyLarge } from "./TypographyLarge";
 import { TypographyLead } from "./TypographyLead";
-import { TypographyList } from "./TypographyList";
+import { TypographyList, TypographyOrderedList } from "./TypographyList";
 import { TypographyP } from "./TypographyP";
 import { TypographyPre } from "./TypographyPre";
 import { TypographySmall } from "./TypographySmall";
@@ -27,6 +27,7 @@ export {
   TypographyLarge,
   TypographyLead,
   TypographyList,
+  TypographyOrderedList,
   TypographyP,
   TypographyPre,
   TypographySmall,
