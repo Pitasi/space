@@ -8,6 +8,7 @@ import { Navbar } from "~/components/navbar";
 import { SessionProviderRSC } from "~/components/session-provider";
 import "highlight.js/styles/github.css";
 import { env } from "~/env.mjs";
+import Favicons from "./favicons";
 
 export const revalidate = 0;
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       )}
     >
       <head>
+        <Favicons />
         {env.PLAUSIBLE_DOMAIN ? (
           <PlausibleProvider
             domain="anto.pt"
