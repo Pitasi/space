@@ -7,16 +7,20 @@ const schema = z.object({
   authorId: z.string(),
   createdAt: z.date(),
   slug: z.string(),
+  published: z.boolean(),
 });
 
 export default async (params: z.infer<typeof schema>) => {
-  const { title, content, authorId, slug } = await schema.parseAsync(params);
+  const { title, content, authorId, slug, published, createdAt } =
+    await schema.parseAsync(params);
   return await prisma.article.create({
     data: {
       title,
       content,
+      createdAt,
       slug,
       authorId,
+      published,
     },
   });
 };
