@@ -27,6 +27,7 @@ const server = z.object({
   CF_ACCESS_KEY_ID: z.string(),
   CF_SECRET_ACCESS_KEY: z.string(),
   CF_BUCKET: z.string(),
+  PLAUSIBLE_DOMAIN: z.string().optional(),
 });
 
 /**
@@ -56,6 +57,7 @@ const processEnv = {
   CF_ACCESS_KEY_ID: process.env.CF_ACCESS_KEY_ID,
   CF_SECRET_ACCESS_KEY: process.env.CF_SECRET_ACCESS_KEY,
   CF_BUCKET: process.env.CF_BUCKET,
+  PLAUSIBLE_DOMAIN: process.env.PLAUSIBLE_DOMAIN,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 

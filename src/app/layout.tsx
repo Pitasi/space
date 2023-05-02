@@ -1,3 +1,4 @@
+import PlausibleProvider from "next-plausible";
 import { SquircleShapeProvider } from "~/components/Squircle";
 import "../styles/globals.css";
 import { cn } from "~/utils/tw";
@@ -5,8 +6,8 @@ import { darkerGrotesque, inter } from "~/utils/fonts";
 import { RootSidebar } from "../components/root-sidebar";
 import { Navbar } from "~/components/navbar";
 import { SessionProviderRSC } from "~/components/session-provider";
-
 import "highlight.js/styles/github.css";
+import { env } from "~/env.mjs";
 
 export const revalidate = 0;
 
@@ -31,6 +32,15 @@ export default function RootLayout({
         darkerGrotesque.variable
       )}
     >
+      <head>
+        {env.PLAUSIBLE_DOMAIN ? (
+          <PlausibleProvider
+            domain="anto.pt"
+            customDomain={env.PLAUSIBLE_DOMAIN}
+            selfHosted
+          />
+        ) : null}
+      </head>
       <body className="flex min-h-screen">
         {/** @ts-expect-error Server component */}
         <SessionProviderRSC>
