@@ -7,7 +7,7 @@ export const TypographyH1 = classed.h1(
     variants: {
       variant: {
         default: "",
-        neubrutal: [classes.neubrutal, "text-7xl lg:text-8xl"].join(" "),
+        neubrutal: [classes.neubrutal, "text-7xl lg:text-8xl mb-12"].join(" "),
       },
       shadow: {
         none: "",
