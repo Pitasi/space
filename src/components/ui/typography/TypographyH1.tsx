@@ -1,13 +1,13 @@
-import { classed } from "@tw-classed/react";
 import classes from "./TypographyH1.module.css";
+import { classed } from "~/utils/tw";
 
 export const TypographyH1 = classed.h1(
-  "scroll-m-20 text-6xl font-extrabold tracking-tight lg:text-8xl text-eerie",
+  "scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-6xl text-eerie",
   {
     variants: {
       variant: {
         default: "",
-        neubrutal: classes.neubrutal || "",
+        neubrutal: [classes.neubrutal, "text-7xl lg:text-8xl"].join(" "),
       },
       shadow: {
         none: "",

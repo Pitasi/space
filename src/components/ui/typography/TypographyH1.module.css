@@ -1,6 +1,5 @@
 .neubrutal {
-	-webkit-text-stroke: 1px #000;
-	color: #ABE5BC;
 	font-family: var(--font-darker-grotesque);
 	font-weight: 900;
+	text-shadow: #fe7dd0 .5px .5px, #fe7dd0 1px 1px, #fe7dd0 1.5px 1.5px, #fe7dd0 2px 2px;
 }
