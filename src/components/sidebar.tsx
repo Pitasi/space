@@ -76,7 +76,7 @@ export function SidebarNavItem(props: SidebarNavItemProps) {
       <NavLink
         href={props.href}
         className={cn(
-          "flex h-auto w-full flex-row bg-inherit lg:justify-start",
+          "flex h-auto w-full flex-row items-center justify-start bg-inherit",
           props.className
         )}
       >
