@@ -30,6 +30,7 @@ const config = {
 
   experimental: {
     appDir: true,
+    serverActions: true,
   },
 
   images: {
