@@ -39,3 +39,6 @@ export default WithGetter(getArticle, ({ data }) => {
     </Main>
   );
 });
+
+export const revalidate = 120;
+export const dynamic = "error";

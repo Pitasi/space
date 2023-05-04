@@ -5,12 +5,10 @@ import { cn } from "~/utils/tw";
 import { darkerGrotesque, inter } from "~/utils/fonts";
 import { RootSidebar } from "../components/root-sidebar";
 import { Navbar } from "~/components/navbar";
-import { SessionProviderRSC } from "~/components/session-provider";
 import "highlight.js/styles/github.css";
 import { env } from "~/env.mjs";
 import Favicons from "./favicons";
-
-export const revalidate = 0;
+import { SessionProviderClient } from "~/components/session-provider/client";
 
 export const metadata = {
   title: {
@@ -44,15 +42,14 @@ export default function RootLayout({
         ) : null}
       </head>
       <body className="flex min-h-screen">
-        {/** @ts-expect-error Server component */}
-        <SessionProviderRSC>
+        <SessionProviderClient>
           <SquircleShapeProvider />
           <div className="flex flex-1 flex-row bg-white">
             <Navbar />
             <RootSidebar />
             {children}
           </div>
-        </SessionProviderRSC>
+        </SessionProviderClient>
       </body>
     </html>
   );
