@@ -20,7 +20,7 @@ export default function LayoutWithList<ItemT>(
 
     return (
       <div className="relative h-full w-full flex-row lg:grid lg:grid-cols-[20rem_minmax(0,1fr)]">
-        <Sidebar className="min-h-full shrink-0 bg-acid bg-pattern-hideout lg:block">
+        <Sidebar className="min-h-full shrink-0 bg-acid bg-pattern-hideout lg:block lg:min-h-0">
           <SidebarHeader title={title} />
           <SidebarNav>
             {items.map(itemToPath).map((item) => (
