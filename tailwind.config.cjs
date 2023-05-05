@@ -54,6 +54,7 @@ const config = {
         yellow: "#f6ff5f",
         cyan: "#71f2ff",
         violet: "#d67fff",
+        darkviolet: "#e20093",
       },
       data: {
         active: 'active="true"',
