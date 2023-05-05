@@ -23,7 +23,7 @@ export default async function NewArticlePage() {
             createdAt: new Date(data.createdAt),
             authorId: session.user.id,
           });
-          return { redirect: `/articles/${slug}/edit` };
+          return { redirect: `/articles/${slug}` };
         }}
       />
     </div>
