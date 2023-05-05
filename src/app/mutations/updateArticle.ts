@@ -3,7 +3,7 @@ import { prisma } from "~/server/db";
 import { newArticleSchema } from "./newArticle";
 
 const schema = newArticleSchema
-  .omit({ slug: true })
+  .omit({ slug: true, authorId: true })
   .merge(z.object({ id: z.string() }));
 
 export default async (params: z.infer<typeof schema>) => {
