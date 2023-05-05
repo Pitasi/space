@@ -27,6 +27,7 @@
     "@tw-classed/react": "^1.4.4",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
+    "framer-motion": "^10.12.8",
     "highlight.js": "^11.8.0",
     "lucide-react": "^0.127.0",
     "next": "^13.4.0",

@@ -1,9 +1,11 @@
+"use client";
 import { cn } from "~/utils/tw";
 import { Button } from "./ui/button";
 import { ChevronLeft /*, Heart*/ } from "lucide-react";
 import Link from "next/link";
 // import { LoginGate } from "./login-gate";
 // import { getSessionRSC } from "~/server/auth_rsc";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Header({
   title,
@@ -14,12 +16,14 @@ export function Header({
   backHref: string;
   className?: string;
 }) {
-  // const session = await getSessionRSC();
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 200], [0, 1]);
+  const translateY = useTransform(scrollY, [0, 200], [20, 0]);
 
   return (
     <header
       className={cn(
-        "flex w-full items-center justify-between border-b-2 border-black bg-yellow py-4 px-4 lg:justify-end",
+        "sticky top-0 z-10 flex w-full items-center justify-between gap-2 overflow-hidden border-b-2 border-black bg-yellow px-3 py-3 lg:justify-end",
         className
       )}
     >
@@ -28,9 +32,12 @@ export function Header({
           <ChevronLeft />
         </Button>
       </Link>
-      <span className="font-bold lg:hidden">
-        {title.length > 20 ? title.slice(0, 20) + "..." : title}
-      </span>
+      <motion.span
+        style={{ opacity, translateY }}
+        className="line-clamp-1 text-ellipsis font-bold"
+      >
+        {title}
+      </motion.span>
       {/* Will launch "hearts" in near future
       <LoginGate session={session}>
         <Button variant="ghost" size="sm">
