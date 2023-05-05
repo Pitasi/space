@@ -1,13 +1,10 @@
 import { z } from "zod";
 import { prisma } from "~/server/db";
+import { newArticleSchema } from "./newArticle";
 
-const schema = z.object({
-  id: z.string(),
-  title: z.string(),
-  content: z.string(),
-  published: z.boolean(),
-  createdAt: z.date(),
-});
+const schema = newArticleSchema
+  .omit({ slug: true })
+  .merge(z.object({ id: z.string() }));
 
 export default async (params: z.infer<typeof schema>) => {
   const { id, title, content, published, createdAt } = await schema.parseAsync(

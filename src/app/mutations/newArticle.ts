@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { prisma } from "~/server/db";
 
-const schema = z.object({
+export const newArticleSchema = z.object({
   title: z.string(),
   content: z.string(),
   authorId: z.string(),
@@ -10,9 +10,9 @@ const schema = z.object({
   published: z.boolean(),
 });
 
-export default async (params: z.infer<typeof schema>) => {
+export default async (params: z.infer<typeof newArticleSchema>) => {
   const { title, content, authorId, slug, published, createdAt } =
-    await schema.parseAsync(params);
+    await newArticleSchema.parseAsync(params);
   return await prisma.article.create({
     data: {
       title,
