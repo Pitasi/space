@@ -25,11 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "bg-beige-200 dark:bg-midnight-700 dark:text-neutral",
-        inter.variable,
-        darkerGrotesque.variable
-      )}
+      className={cn("bg-floralwhite", inter.variable, darkerGrotesque.variable)}
     >
       <head>
         <Favicons />
@@ -44,7 +40,7 @@ export default function RootLayout({
       <body className="flex min-h-screen">
         <SessionProviderClient>
           <SquircleShapeProvider />
-          <div className="flex flex-1 flex-row bg-white">
+          <div className="flex flex-1 flex-row">
             <Navbar />
             <RootSidebar />
             {children}
