@@ -95,7 +95,7 @@ const socials = [
         <Linkedin className="inline-block" fill="currentColor" />
       </>
     ),
-    href: "https://linkedin.com/in/pitasiantonio",
+    href: "https://linkedin.com/in/pitasi",
   },
 ];
 function FollowMeSection() {
