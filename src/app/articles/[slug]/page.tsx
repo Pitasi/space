@@ -3,7 +3,7 @@ import getArticle from "~/app/queries/getArticle";
 import { WithGetter } from "~/components/WithGetter";
 import { Content } from "~/components/content";
 // import { Comments } from "~/components/comments/comments";
-import { Header } from "~/components/header";
+import { Header } from "~/components/header/header";
 import { Main } from "~/components/main";
 // import { CommentCard } from "~/components/comments/comment-card";
 import { MDX } from "~/components/mdx/mdx";

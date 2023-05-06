@@ -1,5 +1,5 @@
 import { Content } from "~/components/content";
-import { Header } from "~/components/header";
+import { Header } from "~/components/header/header";
 import { Main } from "~/components/main";
 import { TypographyH2, TypographyP } from "~/components/ui/typography";
 
