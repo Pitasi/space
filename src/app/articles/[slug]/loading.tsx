@@ -6,6 +6,7 @@ import { TypographyH2, TypographyP } from "~/components/ui/typography";
 export default function LoadingArticle() {
   return (
     <Main>
+      {/* @ts-expect-error Server Component */}
       <Header title="Loading..." backHref="/articles" />
 
       <Content title="Loading...">

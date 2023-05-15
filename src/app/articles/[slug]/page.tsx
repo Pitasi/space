@@ -20,7 +20,8 @@ export async function generateMetadata({
 export default WithGetter(getArticle, ({ data }) => {
   return (
     <Main>
-      <Header title={data.title} backHref="/articles" />
+      {/* @ts-expect-error Server Component */}
+      <Header title={data.title} backHref="/articles" heartTargetId={data.id} />
 
       <Content title={data.title}>
         <MDX content={data.content} />

@@ -1,22 +1,20 @@
 "use client";
 
-import { Session } from "next-auth";
+import { signIn, useSession } from "next-auth/react";
 
-export function LoginGate(props: {
-  children: React.ReactNode;
-  session?: Session | null;
-}) {
-  const loggedIn = props.session && props.session.user;
+export function LoginGate(props: { children: React.ReactNode }) {
+  const { status } = useSession();
   return (
     <div
-      onClickCapture={
-        loggedIn
-          ? undefined
-          : (e) => {
-              e.stopPropagation();
-              alert("You have to login first.");
-            }
-      }
+      onClickCapture={async (e) => {
+        if (status === "authenticated") {
+          return;
+        }
+        e.stopPropagation();
+        if (status === "unauthenticated") {
+          await signIn();
+        }
+      }}
     >
       {props.children}
     </div>

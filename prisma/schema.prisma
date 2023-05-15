@@ -92,6 +92,17 @@ model Comment {
     amaQuestionId String?
 }
 
+model Reaction {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    author    User     @relation(fields: [authorId], references: [id])
+    authorId  String
+    targetId  String
+
+    @@unique([authorId, targetId])
+    @@index([targetId])
+}
+
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -132,6 +143,7 @@ model User {
     apps          App[]
     amaQuestion   AmaQuestion[]
     comment       Comment[]
+    Reaction      Reaction[]
 }
 
 model VerificationToken {

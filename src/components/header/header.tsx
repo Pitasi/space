@@ -1,24 +1,84 @@
+import { revalidateTag, unstable_cache } from "next/cache";
 import { cn } from "~/utils/tw";
 import { Button } from "../ui/button";
-import { ChevronLeft /*, Heart*/ } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Title } from "./title";
-// import { LoginGate } from "./login-gate";
-// import { getSessionRSC } from "~/server/auth_rsc";
+import { LoginGate } from "../login-gate";
+import { HeartButton } from "./heart-button";
+import { prisma } from "~/server/db";
+import { getSessionRSC } from "~/server/auth_rsc";
 
-export function Header({
+async function isHearted(authorId: string, targetId: string) {
+  return !!(await prisma.reaction.findFirst({
+    where: {
+      AND: {
+        authorId,
+        targetId,
+      },
+    },
+  }));
+}
+
+async function heart(authorId: string, targetId: string) {
+  await prisma.reaction.upsert({
+    update: {},
+    create: {
+      authorId,
+      targetId,
+    },
+    where: {
+      authorId_targetId: {
+        authorId,
+        targetId,
+      },
+    },
+  });
+}
+async function unheart(authorId: string, targetId: string) {
+  await prisma.reaction.delete({
+    where: {
+      authorId_targetId: {
+        authorId,
+        targetId,
+      },
+    },
+  });
+}
+
+async function heartCount(targetId: string) {
+  return await prisma.reaction.count({
+    where: {
+      targetId,
+    },
+  });
+}
+
+export async function Header({
   title,
   backHref,
   className,
+  heartTargetId,
 }: {
+  heartTargetId?: string;
   title: string;
   backHref: string;
   className?: string;
 }) {
+  const count = heartTargetId
+    ? await unstable_cache(
+        () => heartCount(heartTargetId),
+        ["reaction", heartTargetId],
+        {
+          tags: [`reaction:${heartTargetId}`],
+        }
+      )()
+    : 0;
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-10 flex w-full items-center justify-between gap-2 overflow-hidden border-b-2 border-black bg-yellow px-3 py-3 lg:justify-end",
+        "sticky top-0 z-10 flex w-full items-center justify-between gap-2 overflow-hidden border-b-2 border-black bg-yellow px-3 py-3 lg:justify-end lg:gap-4",
         className
       )}
     >
@@ -29,23 +89,40 @@ export function Header({
       </Link>
 
       <Title>{title}</Title>
-      {/* Will launch "hearts" in near future
-      <LoginGate session={session}>
-        <Button variant="ghost" size="sm">
-          <Hearts />
-        </Button>
-      </LoginGate>
-      */}
-      <div />
+
+      {heartTargetId ? (
+        <LoginGate>
+          <HeartButton
+            count={count}
+            isHearted={async () => {
+              "use server";
+              const session = await getSessionRSC();
+              if (!session) {
+                return false;
+              }
+              return await isHearted(session.user.id, heartTargetId);
+            }}
+            onHeart={async () => {
+              "use server";
+              const session = await getSessionRSC();
+              if (!session) {
+                throw new Error("Not authenticated");
+              }
+              await heart(session.user.id, heartTargetId);
+              revalidateTag(`reaction:${heartTargetId}`);
+            }}
+            onUnheart={async () => {
+              "use server";
+              const session = await getSessionRSC();
+              if (!session) {
+                throw new Error("Not authenticated");
+              }
+              await unheart(session.user.id, heartTargetId);
+              revalidateTag(`reaction:${heartTargetId}`);
+            }}
+          />
+        </LoginGate>
+      ) : null}
     </header>
   );
 }
-
-// function Hearts() {
-//   return (
-//     <div className="flex flex-row items-center justify-center gap-2 font-neu text-3xl font-bold">
-//       <Heart fill="red" color="black" className="drop-shadow-neu-2" />
-//       <span>42</span>
-//     </div>
-//   );
-// }
