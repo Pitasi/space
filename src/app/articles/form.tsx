@@ -7,6 +7,7 @@ import { z } from "zod";
 import { EditorTextarea } from "~/components/editor";
 
 export const Schema = z.object({
+  id: z.string().optional(),
   title: z.string().nonempty(),
   slug: z.string().nonempty(),
   content: z.string().nonempty(),
@@ -16,7 +17,7 @@ export const Schema = z.object({
 
 type SchemaType = z.infer<typeof Schema>;
 
-type OnSubmitData = Omit<SchemaType, "createdAt"> & {
+export type OnSubmitData = Omit<SchemaType, "createdAt"> & {
   createdAt: string;
 };
 
@@ -25,6 +26,7 @@ type OnSubmitResult = { redirect?: string };
 export function Form(props: {
   onSubmit: (data: OnSubmitData) => Promise<OnSubmitResult>;
   article?: {
+    id: string;
     title: string;
     slug: string;
     content: string;
@@ -52,6 +54,7 @@ export function Form(props: {
 
   return (
     <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+      <input type="hidden" {...register("id", { value: props.article?.id })} />
       <input
         className="border border-black p-2 dark:text-slate-800"
         placeholder="the-slug"
