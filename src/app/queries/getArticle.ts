@@ -11,13 +11,5 @@ export default cache(
   }) =>
     await prisma.article.findFirst({
       where: { slug, published: onlyPublished ? true : undefined },
-      include: {
-        comment: {
-          orderBy: { createdAt: "desc" },
-          include: {
-            author: true,
-          },
-        },
-      },
     })
 );

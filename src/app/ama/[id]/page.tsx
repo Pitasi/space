@@ -6,13 +6,6 @@ const getQuestion = cache(
   async ({ id }: { id: string }) =>
     await prisma.amaQuestion.findFirst({
       where: { id },
-      include: {
-        comment: {
-          include: {
-            author: true,
-          },
-        },
-      },
     })
 );
 
@@ -26,13 +19,6 @@ export default WithGetter(getQuestion, ({ data }) => {
     <div>
       <h1>{data.question}</h1>
       <p>{data.description}</p>
-      <ul>
-        {data.comment.map((comment) => (
-          <li key={comment.id}>
-            {comment.content} (from {comment.author.name})
-          </li>
-        ))}
-      </ul>
     </div>
   );
 });

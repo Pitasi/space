@@ -13,9 +13,10 @@ import { Button } from "../ui/button";
 
 import { AddCommentForm } from "./add-form";
 import { useState } from "react";
+import { OnSubmitData } from "./add-form";
 
 export function AddCommentDialog(props: {
-  onSubmit: (data: { content: string }) => Promise<void>;
+  onSubmit: (data: OnSubmitData) => Promise<void>;
 }) {
   const [open, setOpen] = useState(false);
 

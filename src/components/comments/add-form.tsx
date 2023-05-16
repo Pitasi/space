@@ -10,13 +10,13 @@ export const Schema = z.object({
   content: z.string().nonempty(),
 });
 
-type SchemaType = z.infer<typeof Schema>;
+export type OnSubmitData = z.infer<typeof Schema>;
 
 export function AddCommentForm(props: {
-  onSubmit: (data: SchemaType) => Promise<void>;
+  onSubmit: (data: OnSubmitData) => Promise<void>;
 }) {
   const router = useRouter();
-  const { register, handleSubmit, reset, formState } = useForm<SchemaType>({
+  const { register, handleSubmit, reset, formState } = useForm<OnSubmitData>({
     resolver: zodResolver(Schema),
   });
   const onSubmit = handleSubmit(async (d) => {
